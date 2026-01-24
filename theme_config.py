@@ -43,6 +43,9 @@ extensions = [
 # Path relative to conf.py location (sphinx-theme is a subdirectory)
 html_static_path = ['sphinx-theme/_static']
 
+# Templates path for custom layout (includes top navigation bar)
+templates_path = ['sphinx-theme/_templates']
+
 # Custom CSS
 html_css_files = [
     'custom.css',

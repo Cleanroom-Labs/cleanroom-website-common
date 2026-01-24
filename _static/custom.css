@@ -409,80 +409,29 @@ a.download:hover {
    Top Navigation Bar
    ============================================================================ */
 
-/* Main navigation bar */
-.site-nav-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 48px;
-    background-color: #1f2937;  /* gray-800 - matches website */
-    z-index: 300;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #374151;  /* gray-700 */
+/* Override link colors in nav bar (Tailwind handles the rest) */
+.site-nav-bar a,
+.site-nav-bar a:link,
+.site-nav-bar a:visited,
+.site-nav-bar a:active {
+    color: #ffffff !important;
 }
 
-.site-nav-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-.site-nav-brand {
-    color: #ffffff;
-    font-size: 1.125rem;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.site-nav-brand:hover {
-    color: #d1d5db;
-    text-decoration: none;
-}
-
-.site-nav-links {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.site-nav-link {
-    color: #d1d5db;
-    padding: 0.5rem 0.75rem;
-    border-radius: 0.375rem;
-    text-decoration: none;
-    font-size: 0.875rem;
-    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
-}
-
-.site-nav-link:hover {
-    background-color: #374151;  /* gray-700 */
-    color: #ffffff;
-    text-decoration: none;
-}
-
-.site-nav-link.site-nav-current {
-    background-color: #2563eb;  /* blue-600 */
-    color: #ffffff;
-}
-
-.site-nav-link.site-nav-current:hover {
-    background-color: #1d4ed8;  /* blue-700 */
+/* Remove vertical separators between sidebar sections */
+.wy-menu-vertical .caption {
+    border-bottom: none !important;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 /* Adjust RTD theme layout for fixed header */
 .wy-nav-side {
-    top: 48px;
-    height: calc(100% - 48px);
+    top: 56px;
+    height: calc(100% - 56px);
 }
 
 .wy-nav-content-wrap {
-    margin-top: 48px;
+    margin-top: 56px;
 }
 
 .wy-side-nav-search {
@@ -491,26 +440,18 @@ a.download:hover {
 
 /* Mobile nav adjustments */
 @media screen and (max-width: 768px) {
-    .site-nav-container {
-        padding: 0 0.75rem;
-    }
-
-    .site-nav-brand {
-        font-size: 1rem;
-    }
-
-    .site-nav-links {
-        gap: 0.25rem;
-    }
-
-    .site-nav-link {
-        padding: 0.375rem 0.5rem;
-        font-size: 0.8rem;
-    }
-
     /* Adjust mobile menu button position */
     .wy-nav-top {
         top: 48px;
+    }
+
+    .wy-nav-side {
+        top: 48px;
+        height: calc(100% - 48px);
+    }
+
+    .wy-nav-content-wrap {
+        margin-top: 48px;
     }
 }
 
