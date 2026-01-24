@@ -16,15 +16,15 @@ Usage in conf.py:
 html_theme = 'sphinx_rtd_theme'
 
 html_theme_options = {
-    'navigation_depth': 4,
-    'collapse_navigation': False,
-    'sticky_navigation': True,
-    'includehidden': True,
-    'titles_only': False,
     'logo_only': False,
     'prev_next_buttons_location': 'bottom',
-    'style_external_links': True,
+    'style_external_links': False,
     'style_nav_header_background': '#2980B9',
+    'collapse_navigation': False,
+    'sticky_navigation': True,
+    'navigation_depth': 4,
+    'includehidden': True,
+    'titles_only': False,
 }
 
 # -- Extensions --------------------------------------------------------------
@@ -32,6 +32,7 @@ html_theme_options = {
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.intersphinx',
+    'sphinx.ext.napoleon',
     'sphinx.ext.todo',
     'sphinx.ext.viewcode',
     'sphinx.ext.graphviz',
@@ -43,7 +44,11 @@ extensions = [
 
 # Path relative to conf.py location (sphinx-theme is a subdirectory)
 html_static_path = ['sphinx-theme/_static']
-html_css_files = ['custom.css']
+
+# Custom CSS
+html_css_files = [
+    'custom.css',
+]
 
 # -- Common settings ---------------------------------------------------------
 
@@ -59,7 +64,7 @@ master_doc = 'index'
 
 # -- HTML output options -----------------------------------------------------
 
-html_show_sourcelink = True
+html_show_sourcelink = False
 html_show_sphinx = False
 html_show_copyright = True
 
