@@ -1,0 +1,432 @@
+/* ============================================================================
+   AirGap Project Suite - Custom Sphinx Theme
+   Professional documentation styling for IEEE-compliant technical docs
+   ============================================================================ */
+
+/* ============================================================================
+   Layout and Typography
+   ============================================================================ */
+
+/* IEEE standard document styling with improved readability */
+.document {
+    max-width: 980px;
+    line-height: 1.7;
+}
+
+/* Better font stack for code and technical content */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+code, pre, .highlight {
+    font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro", monospace;
+    font-size: 0.9em;
+}
+
+/* Improved headings hierarchy */
+h1 {
+    border-bottom: 3px solid #2980b9;
+    padding-bottom: 0.3em;
+    margin-top: 1.5em;
+    font-size: 2.2em;
+}
+
+h2 {
+    border-bottom: 2px solid #6ab0de;
+    padding-bottom: 0.2em;
+    margin-top: 1.3em;
+    font-size: 1.8em;
+}
+
+h3 {
+    color: #2c3e50;
+    margin-top: 1.2em;
+    font-size: 1.4em;
+}
+
+/* ============================================================================
+   sphinx-needs Directive Styling
+   ============================================================================ */
+
+/* Highlight requirement IDs */
+.needs_head {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #2c3e50;
+}
+
+.needs_id {
+    font-family: "Monaco", "Menlo", monospace;
+    background-color: #f8f9fa;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.95em;
+}
+
+/* Traceability matrix styling */
+.needstable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.needstable th {
+    background: linear-gradient(to bottom, #4a6fa5 0%, #2c5282 100%);
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.needstable td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e1e4e8;
+}
+
+.needstable tr:hover {
+    background-color: #f6f8fa;
+}
+
+.needstable tr:nth-child(even) {
+    background-color: #fafbfc;
+}
+
+/* Use case highlighting */
+.usecase {
+    border-left: 5px solid #3b82c4;
+    background: linear-gradient(to right, #e8f4f8 0%, transparent 100%);
+    padding: 15px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.usecase .needs_head {
+    color: #2563eb;
+}
+
+/* Requirement highlighting */
+.req, .nfreq {
+    border-left: 5px solid #f97316;
+    background: linear-gradient(to right, #fff7ed 0%, transparent 100%);
+    padding: 15px;
+    padding-left: 20px;
+    margin-bottom: 15px;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.req .needs_head, .nfreq .needs_head {
+    color: #ea580c;
+}
+
+/* Test case highlighting */
+.test {
+    border-left: 5px solid #10b981;
+    background: linear-gradient(to right, #ecfdf5 0%, transparent 100%);
+    padding: 15px;
+    padding-left: 20px;
+    margin-bottom: 15px;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.test .needs_head {
+    color: #059669;
+}
+
+/* Implementation highlighting */
+.impl {
+    border-left: 5px solid #8b5cf6;
+    background: linear-gradient(to right, #f5f3ff 0%, transparent 100%);
+    padding: 15px;
+    padding-left: 20px;
+    margin-bottom: 15px;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.impl .needs_head {
+    color: #7c3aed;
+}
+
+/* Design specification highlighting */
+.spec {
+    border-left: 5px solid #eab308;
+    background: linear-gradient(to right, #fefce8 0%, transparent 100%);
+    padding: 15px;
+    padding-left: 20px;
+    margin-bottom: 15px;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.spec .needs_head {
+    color: #ca8a04;
+}
+
+/* ============================================================================
+   Code Blocks and Syntax Highlighting
+   ============================================================================ */
+
+.highlight {
+    border-radius: 4px;
+    border: 1px solid #e1e4e8;
+    background-color: #f6f8fa;
+    padding: 1em;
+    margin: 1em 0;
+    overflow-x: auto;
+}
+
+.highlight pre {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+}
+
+/* Inline code */
+code.literal {
+    background-color: #f6f8fa;
+    border: 1px solid #e1e4e8;
+    border-radius: 3px;
+    padding: 0.2em 0.4em;
+    color: #24292e;
+    font-size: 0.9em;
+}
+
+/* ============================================================================
+   Admonitions (Notes, Warnings, etc.)
+   ============================================================================ */
+
+.admonition {
+    border-radius: 4px;
+    padding: 12px;
+    margin: 1.5em 0;
+    border-left: 4px solid;
+}
+
+.admonition.note {
+    background-color: #e8f4f8;
+    border-left-color: #3b82c4;
+}
+
+.admonition.warning {
+    background-color: #fff4e6;
+    border-left-color: #f59e0b;
+}
+
+.admonition.important {
+    background-color: #fef2f2;
+    border-left-color: #ef4444;
+}
+
+.admonition-title {
+    font-weight: 700;
+    margin-bottom: 0.5em;
+}
+
+/* ============================================================================
+   Tables
+   ============================================================================ */
+
+table.docutils {
+    border-collapse: collapse;
+    border: 1px solid #e1e4e8;
+    margin: 1.5em 0;
+    width: 100%;
+}
+
+table.docutils th {
+    background-color: #f6f8fa;
+    border: 1px solid #e1e4e8;
+    padding: 10px;
+    text-align: left;
+    font-weight: 600;
+}
+
+table.docutils td {
+    border: 1px solid #e1e4e8;
+    padding: 10px;
+}
+
+table.docutils tr:hover {
+    background-color: #fafbfc;
+}
+
+/* ============================================================================
+   Navigation and Sidebar
+   ============================================================================ */
+
+/* Sidebar improvements */
+.wy-nav-side {
+    background-color: #2c3e50;
+}
+
+.wy-side-nav-search {
+    background-color: #1a252f;
+}
+
+.wy-menu-vertical a {
+    color: #d1d5db;
+}
+
+.wy-menu-vertical a:hover {
+    background-color: #34495e;
+    color: #ffffff;
+}
+
+.wy-menu-vertical li.current > a {
+    background-color: #4a6fa5;
+    color: #ffffff;
+}
+
+/* Breadcrumbs */
+.wy-breadcrumbs {
+    margin-bottom: 1.5em;
+}
+
+.wy-breadcrumbs li {
+    color: #6b7280;
+}
+
+/* ============================================================================
+   Mobile Responsiveness
+   ============================================================================ */
+
+@media screen and (max-width: 768px) {
+    .document {
+        max-width: 100%;
+        padding: 0 1em;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .needstable {
+        font-size: 0.9em;
+    }
+
+    .needstable th,
+    .needstable td {
+        padding: 8px;
+    }
+
+    .highlight {
+        font-size: 0.85em;
+    }
+}
+
+/* ============================================================================
+   Links and Cross-References
+   ============================================================================ */
+
+a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+a.reference.internal {
+    border-bottom: 1px dotted #93c5fd;
+}
+
+a.reference.external::after {
+    content: " ↗";
+    font-size: 0.8em;
+    opacity: 0.6;
+}
+
+/* ============================================================================
+   Special Elements
+   ============================================================================ */
+
+/* Download links */
+a.download {
+    background-color: #10b981;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 4px 0;
+}
+
+a.download:hover {
+    background-color: #059669;
+    text-decoration: none;
+}
+
+/* Version badge */
+.version {
+    background-color: #6366f1;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+/* Status badges */
+.status-approved {
+    background-color: #10b981;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.status-pending {
+    background-color: #f59e0b;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.status-rejected {
+    background-color: #ef4444;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+/* ============================================================================
+   Print Styles
+   ============================================================================ */
+
+@media print {
+    .wy-nav-side,
+    .wy-nav-content-wrap,
+    .rst-versions {
+        display: none;
+    }
+
+    .document {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+
+    .usecase, .req, .nfreq, .test, .impl, .spec {
+        page-break-inside: avoid;
+    }
+}
