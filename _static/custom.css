@@ -262,11 +262,11 @@ table.docutils tr:hover {
 
 /* Sidebar improvements */
 .wy-nav-side {
-    background-color: #2c3e50;
+    background-color: #1f2937;  /* gray-800 - matches website */
 }
 
 .wy-side-nav-search {
-    background-color: #1a252f;
+    background-color: #111827;  /* gray-900 - matches website */
 }
 
 .wy-menu-vertical a {
@@ -274,12 +274,12 @@ table.docutils tr:hover {
 }
 
 .wy-menu-vertical a:hover {
-    background-color: #34495e;
+    background-color: #374151;  /* gray-700 - matches website */
     color: #ffffff;
 }
 
 .wy-menu-vertical li.current > a {
-    background-color: #4a6fa5;
+    background-color: #2563eb;  /* blue-600 - matches website */
     color: #ffffff;
 }
 
@@ -403,6 +403,115 @@ a.download:hover {
     border-radius: 3px;
     font-size: 0.85em;
     font-weight: 600;
+}
+
+/* ============================================================================
+   Top Navigation Bar
+   ============================================================================ */
+
+/* Main navigation bar */
+.site-nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    background-color: #1f2937;  /* gray-800 - matches website */
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #374151;  /* gray-700 */
+}
+
+.site-nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.site-nav-brand {
+    color: #ffffff;
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.site-nav-brand:hover {
+    color: #d1d5db;
+    text-decoration: none;
+}
+
+.site-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.site-nav-link {
+    color: #d1d5db;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.site-nav-link:hover {
+    background-color: #374151;  /* gray-700 */
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.site-nav-link.site-nav-current {
+    background-color: #2563eb;  /* blue-600 */
+    color: #ffffff;
+}
+
+.site-nav-link.site-nav-current:hover {
+    background-color: #1d4ed8;  /* blue-700 */
+}
+
+/* Adjust RTD theme layout for fixed header */
+.wy-nav-side {
+    top: 48px;
+    height: calc(100% - 48px);
+}
+
+.wy-nav-content-wrap {
+    margin-top: 48px;
+}
+
+.wy-side-nav-search {
+    margin-top: 0;
+}
+
+/* Mobile nav adjustments */
+@media screen and (max-width: 768px) {
+    .site-nav-container {
+        padding: 0 0.75rem;
+    }
+
+    .site-nav-brand {
+        font-size: 1rem;
+    }
+
+    .site-nav-links {
+        gap: 0.25rem;
+    }
+
+    .site-nav-link {
+        padding: 0.375rem 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    /* Adjust mobile menu button position */
+    .wy-nav-top {
+        top: 48px;
+    }
 }
 
 /* ============================================================================
