@@ -16,15 +16,14 @@ Usage in conf.py:
 html_theme = 'sphinx_rtd_theme'
 
 html_theme_options = {
-    'logo_only': False,
-    'prev_next_buttons_location': 'bottom',
-    'style_external_links': False,
-    'style_nav_header_background': '#2980B9',
+    'navigation_depth': 4,
     'collapse_navigation': False,
     'sticky_navigation': True,
-    'navigation_depth': 4,
     'includehidden': True,
     'titles_only': False,
+    'logo_only': False,
+    'prev_next_buttons_location': 'bottom',
+    'style_external_links': True,
 }
 
 # -- Extensions --------------------------------------------------------------
@@ -32,7 +31,6 @@ html_theme_options = {
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.intersphinx',
-    'sphinx.ext.napoleon',
     'sphinx.ext.todo',
     'sphinx.ext.viewcode',
     'sphinx.ext.graphviz',
@@ -53,7 +51,7 @@ html_css_files = [
 # -- Common settings ---------------------------------------------------------
 
 language = 'en'
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.venv', 'sphinx-theme']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'sphinx-theme']
 
 source_suffix = {
     '.rst': 'restructuredtext',
@@ -64,7 +62,7 @@ master_doc = 'index'
 
 # -- HTML output options -----------------------------------------------------
 
-html_show_sourcelink = False
+html_show_sourcelink = True
 html_show_sphinx = False
 html_show_copyright = True
 
