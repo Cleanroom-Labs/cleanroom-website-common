@@ -34,7 +34,8 @@ h1 {
 h2 {
     border-bottom: 2px solid #6ab0de;
     padding-bottom: 0.2em;
-    margin-top: 1.3em;
+    margin-top: 2em;
+    margin-bottom: 1em;
     font-size: 1.8em;
 }
 
@@ -42,6 +43,28 @@ h3 {
     color: #2c3e50;
     margin-top: 1.2em;
     font-size: 1.4em;
+}
+
+/* List spacing */
+.rst-content ul,
+.rst-content ol {
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+}
+
+.rst-content li {
+    margin-bottom: 0.5em;
+}
+
+/* Toctree caption spacing (e.g., "Project Overview", "Projects") */
+.rst-content .toctree-wrapper .caption,
+.rst-content p.caption {
+    margin-top: 2em;
+}
+
+/* Section spacing */
+.rst-content section {
+    margin-top: 2em;
 }
 
 /* ============================================================================
