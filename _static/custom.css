@@ -31,11 +31,12 @@ h1 {
     font-size: 2.2em;
 }
 
-h2 {
+/* Match RTD theme specificity for h2 (.rst-content h2) */
+.rst-content h2 {
     border-bottom: 2px solid #6ab0de;
     padding-bottom: 0.2em;
-    margin-top: 2em;
-    margin-bottom: 1em;
+    margin-top: 2em !important;
+    margin-bottom: 1em !important;
     font-size: 1.8em;
 }
 
@@ -56,10 +57,10 @@ h3 {
     margin-bottom: 0.5em;
 }
 
-/* Toctree caption spacing (e.g., "Project Overview", "Projects") */
-.rst-content .toctree-wrapper .caption,
-.rst-content p.caption {
-    margin-top: 2em;
+/* Toctree caption spacing (e.g., "Project Overview", "Projects")
+   Use direct child selector to match RTD theme specificity */
+.rst-content .toctree-wrapper > p.caption {
+    margin-top: 2em !important;
 }
 
 /* Section spacing */
@@ -329,7 +330,7 @@ table.docutils tr:hover {
         font-size: 1.8em;
     }
 
-    h2 {
+    .rst-content h2 {
         font-size: 1.5em;
     }
 
