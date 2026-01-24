@@ -342,6 +342,11 @@ a.reference.internal {
     border-bottom: 1px dotted #93c5fd;
 }
 
+/* Remove dotted underlines from sidebar links */
+.wy-menu-vertical a.reference.internal {
+    border-bottom: none;
+}
+
 a.reference.external::after {
     content: " ↗";
     font-size: 0.8em;
