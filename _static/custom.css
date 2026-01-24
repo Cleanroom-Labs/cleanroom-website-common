@@ -57,6 +57,14 @@ h3 {
     margin-bottom: 0.5em;
 }
 
+/* Remove paragraph margins inside simple list items to prevent double-spacing */
+.rst-content section ul.simple li > p,
+.rst-content section ol.simple li > p,
+.rst-content .section ul.simple li > p,
+.rst-content .section ol.simple li > p {
+    margin-bottom: 0;
+}
+
 /* Toctree caption spacing (e.g., "Project Overview", "Projects")
    Use direct child selector to match RTD theme specificity */
 .rst-content .toctree-wrapper > p.caption {
