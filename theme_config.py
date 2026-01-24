@@ -24,7 +24,6 @@ html_theme_options = {
     'logo_only': False,
     'prev_next_buttons_location': 'bottom',
     'style_external_links': True,
-    'display_version': True,
     'style_nav_header_background': '#2980B9',
 }
 
@@ -49,7 +48,7 @@ html_css_files = ['custom.css']
 # -- Common settings ---------------------------------------------------------
 
 language = 'en'
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.venv']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.venv', 'sphinx-theme']
 
 source_suffix = {
     '.rst': 'restructuredtext',
