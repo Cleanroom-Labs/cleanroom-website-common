@@ -10,6 +10,7 @@ This repository provides a single source of truth for Sphinx configuration and s
 
 - `theme_config.py` - Complete Sphinx configuration including theme, extensions, and sphinx-needs settings
 - `_static/custom.css` - Custom CSS styling for IEEE-compliant technical documentation
+- `requirements.txt` - Python dependencies for Sphinx documentation
 
 ## Usage
 
