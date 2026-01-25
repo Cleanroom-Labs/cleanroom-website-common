@@ -16,7 +16,9 @@ const tokens = require('../tokens/colors');
 function generateTailwindConfig(colors) {
   const tailwindColors = {
     'text-secondary': colors['text-secondary'],
+    'emerald': colors['emerald'],
     'emerald-light': colors['emerald-light'],
+    'slate-700': colors['slate-700'],
     'slate-800': colors['slate-800'],
   };
 
@@ -29,14 +31,16 @@ function generateTailwindConfig(colors) {
     }`;
 }
 
-// Generate navigation links HTML
+// Generate navigation links HTML (wrapped in a flex container)
 function generateNavLinks(links) {
-  return links
+  const linkElements = links
     .map(
       (link) =>
-        `        <a href="${link.href}" class="text-text-secondary hover:text-emerald-light no-underline transition-colors">${link.text}</a>`
+        `            <a href="${link.href}" class="text-text-secondary hover:text-emerald-light no-underline transition-colors">${link.text}</a>`
     )
     .join('\n');
+
+  return `        <div class="flex gap-6">\n${linkElements}\n        </div>`;
 }
 
 // Main template generator
@@ -54,6 +58,8 @@ function generateTemplate(nav, tokens) {
 
 {% block extrahead %}
 {{ super() }}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -62,9 +68,9 @@ function generateTemplate(nav, tokens) {
 {% endblock %}
 
 {% block extrabody %}
-<nav class="site-nav-bar bg-slate-800 text-white p-4 fixed top-0 left-0 right-0 z-[300]">
-    <div class="container mx-auto flex gap-6">
-        <a href="${nav.brand.href}" class="font-bold text-white hover:text-emerald-light no-underline transition-colors">${nav.brand.text}</a>
+<nav class="site-nav-bar bg-slate-800 border-b border-slate-700 text-white fixed top-0 left-0 right-0 z-[300]">
+    <div class="container mx-auto px-4 py-4 flex items-center gap-8">
+        <a href="${nav.brand.href}" class="nav-brand font-bold text-lg text-white hover:text-emerald-light no-underline transition-colors">${nav.brand.text}</a>
 ${navLinks}
     </div>
 </nav>
