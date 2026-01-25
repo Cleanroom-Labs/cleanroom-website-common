@@ -21,6 +21,7 @@
   "author": "Cleanroom Labs",
   "license": "MIT",
   "files": [
+    "css/",
     "tokens/",
     "tailwind/",
     "sphinx/",

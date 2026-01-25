@@ -1,0 +1,42 @@
+/**
+ * Cleanroom Design System - Base CSS
+ *
+ * Import this file in your main CSS before Tailwind directives:
+ *   @import '../cleanroom-design-system/css/base.css';
+ *   @tailwind base;
+ *   @tailwind components;
+ *   @tailwind utilities;
+ */
+
+/* ==========================================================================
+   Web Fonts
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ==========================================================================
+   Prose / Typography Fixes
+   ========================================================================== */
+
+/* Remove backticks from inline code (added by typography plugin) */
+.prose code::before,
+.prose code::after {
+  content: none !important;
+}
+
+/* ==========================================================================
+   Animation Keyframes
+   ========================================================================== */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 6s ease-in-out infinite 3s;
+}
