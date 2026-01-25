@@ -1,6 +1,7 @@
 /* ============================================================================
    AirGap Project Suite - Custom Sphinx Theme
    Professional documentation styling for IEEE-compliant technical docs
+   Dark theme to match main website
    ============================================================================ */
 
 /* ============================================================================
@@ -16,6 +17,16 @@
 /* Better font stack for code and technical content */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #d1d5db;  /* text-secondary */
+}
+
+/* Dark content area background */
+.wy-nav-content {
+    background-color: #0f172a;  /* slate-900 dark */
+}
+
+.wy-nav-content-wrap {
+    background-color: #0f172a;
 }
 
 code, pre, .highlight {
@@ -24,8 +35,12 @@ code, pre, .highlight {
 }
 
 /* Improved headings hierarchy */
+h1, h2, h3, h4, h5, h6 {
+    color: #f9fafb;  /* text-primary */
+}
+
 h1 {
-    border-bottom: 3px solid #2980b9;
+    border-bottom: 3px solid #10b981;  /* emerald */
     padding-bottom: 0.3em;
     margin-top: 1.5em;
     font-size: 2.2em;
@@ -33,15 +48,16 @@ h1 {
 
 /* Match RTD theme specificity for h2 (.rst-content h2) */
 .rst-content h2 {
-    border-bottom: 2px solid #6ab0de;
+    border-bottom: 2px solid #10b981;  /* emerald */
     padding-bottom: 0.2em;
     margin-top: 2em !important;
     margin-bottom: 1em !important;
     font-size: 1.8em;
+    color: #f9fafb;  /* text-primary */
 }
 
 h3 {
-    color: #2c3e50;
+    color: #f9fafb;  /* text-primary */
     margin-top: 1.2em;
     font-size: 1.4em;
 }
@@ -84,15 +100,17 @@ h3 {
 .needs_head {
     font-weight: bold;
     font-size: 1.1em;
-    color: #2c3e50;
+    color: #f9fafb;  /* text-primary */
 }
 
 .needs_id {
     font-family: "Monaco", "Menlo", monospace;
-    background-color: #f8f9fa;
+    background-color: #1e293b;  /* slate-800 */
+    border: 1px solid #374151;  /* slate-700 */
     padding: 2px 6px;
     border-radius: 3px;
     font-size: 0.95em;
+    color: #e2e8f0;  /* slate-200 */
 }
 
 /* Traceability matrix styling */
@@ -100,103 +118,105 @@ h3 {
     width: 100%;
     border-collapse: collapse;
     margin: 1.5em 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .needstable th {
-    background: linear-gradient(to bottom, #4a6fa5 0%, #2c5282 100%);
-    color: white;
+    background: linear-gradient(to bottom, #1e293b 0%, #0f172a 100%);
+    color: #f9fafb;
     padding: 12px;
     text-align: left;
     font-weight: 600;
+    border: 1px solid #374151;
 }
 
 .needstable td {
     padding: 10px 12px;
-    border-bottom: 1px solid #e1e4e8;
+    border-bottom: 1px solid #374151;
+    color: #d1d5db;
 }
 
 .needstable tr:hover {
-    background-color: #f6f8fa;
+    background-color: #1e293b;
 }
 
 .needstable tr:nth-child(even) {
-    background-color: #fafbfc;
+    background-color: rgba(30, 41, 59, 0.5);
 }
 
 /* Use case highlighting */
 .usecase {
     border-left: 5px solid #3b82c4;
-    background: linear-gradient(to right, #e8f4f8 0%, transparent 100%);
+    background: linear-gradient(to right, rgba(59, 130, 196, 0.1) 0%, transparent 100%);
     padding: 15px;
     padding-left: 20px;
     margin-bottom: 20px;
     border-radius: 0 4px 4px 0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 .usecase .needs_head {
-    color: #2563eb;
+    color: #60a5fa;  /* blue-400 for dark theme visibility */
 }
 
 /* Requirement highlighting */
 .req, .nfreq {
     border-left: 5px solid #f97316;
-    background: linear-gradient(to right, #fff7ed 0%, transparent 100%);
+    background: linear-gradient(to right, rgba(249, 115, 22, 0.1) 0%, transparent 100%);
     padding: 15px;
     padding-left: 20px;
     margin-bottom: 15px;
     border-radius: 0 4px 4px 0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 .req .needs_head, .nfreq .needs_head {
-    color: #ea580c;
+    color: #fb923c;  /* orange-400 for dark theme visibility */
 }
 
 /* Test case highlighting */
 .test {
     border-left: 5px solid #10b981;
-    background: linear-gradient(to right, #ecfdf5 0%, transparent 100%);
+    background: linear-gradient(to right, rgba(16, 185, 129, 0.1) 0%, transparent 100%);
     padding: 15px;
     padding-left: 20px;
     margin-bottom: 15px;
     border-radius: 0 4px 4px 0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 .test .needs_head {
-    color: #059669;
+    color: #34d399;  /* emerald-400 for dark theme visibility */
 }
 
 /* Implementation highlighting */
 .impl {
     border-left: 5px solid #8b5cf6;
-    background: linear-gradient(to right, #f5f3ff 0%, transparent 100%);
+    background: linear-gradient(to right, rgba(139, 92, 246, 0.1) 0%, transparent 100%);
     padding: 15px;
     padding-left: 20px;
     margin-bottom: 15px;
     border-radius: 0 4px 4px 0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 .impl .needs_head {
-    color: #7c3aed;
+    color: #a78bfa;  /* violet-400 for dark theme visibility */
 }
 
 /* Design specification highlighting */
 .spec {
     border-left: 5px solid #eab308;
-    background: linear-gradient(to right, #fefce8 0%, transparent 100%);
+    background: linear-gradient(to right, rgba(234, 179, 8, 0.1) 0%, transparent 100%);
     padding: 15px;
     padding-left: 20px;
     margin-bottom: 15px;
     border-radius: 0 4px 4px 0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 .spec .needs_head {
-    color: #ca8a04;
+    color: #facc15;  /* yellow-400 for dark theme visibility */
 }
 
 /* ============================================================================
@@ -205,8 +225,8 @@ h3 {
 
 .highlight {
     border-radius: 4px;
-    border: 1px solid #e1e4e8;
-    background-color: #f6f8fa;
+    border: 1px solid #374151;  /* slate-700 */
+    background-color: #1e293b;  /* slate-800 */
     padding: 1em;
     margin: 1em 0;
     overflow-x: auto;
@@ -217,17 +237,27 @@ h3 {
     padding: 0;
     background-color: transparent;
     border: none;
+    color: #e2e8f0;  /* slate-200 */
 }
 
 /* Inline code */
 code.literal {
-    background-color: #f6f8fa;
-    border: 1px solid #e1e4e8;
+    background-color: #1e293b;  /* slate-800 */
+    border: 1px solid #374151;  /* slate-700 */
     border-radius: 3px;
     padding: 0.2em 0.4em;
-    color: #24292e;
+    color: #e2e8f0;  /* slate-200 */
     font-size: 0.9em;
 }
+
+/* Code block text colors for syntax highlighting */
+.highlight .c, .highlight .c1, .highlight .cm { color: #6b7280; }  /* comments - gray */
+.highlight .k, .highlight .kn, .highlight .kd { color: #c084fc; }  /* keywords - purple */
+.highlight .s, .highlight .s1, .highlight .s2 { color: #34d399; }  /* strings - emerald */
+.highlight .n, .highlight .na, .highlight .nb { color: #e2e8f0; }  /* names - light */
+.highlight .nf { color: #60a5fa; }  /* function names - blue */
+.highlight .o, .highlight .p { color: #d1d5db; }  /* operators, punctuation */
+.highlight .mi, .highlight .mf { color: #fbbf24; }  /* numbers - amber */
 
 /* ============================================================================
    Admonitions (Notes, Warnings, etc.)
@@ -238,26 +268,38 @@ code.literal {
     padding: 12px;
     margin: 1.5em 0;
     border-left: 4px solid;
+    color: #d1d5db;  /* text-secondary */
 }
 
 .admonition.note {
-    background-color: #e8f4f8;
-    border-left-color: #3b82c4;
+    background-color: rgba(16, 185, 129, 0.1);  /* emerald semi-transparent */
+    border-left-color: #10b981;  /* emerald */
 }
 
 .admonition.warning {
-    background-color: #fff4e6;
-    border-left-color: #f59e0b;
+    background-color: rgba(245, 158, 11, 0.1);  /* amber semi-transparent */
+    border-left-color: #f59e0b;  /* amber */
 }
 
 .admonition.important {
-    background-color: #fef2f2;
-    border-left-color: #ef4444;
+    background-color: rgba(239, 68, 68, 0.1);  /* red semi-transparent */
+    border-left-color: #ef4444;  /* red */
+}
+
+.admonition.tip {
+    background-color: rgba(16, 185, 129, 0.1);  /* emerald semi-transparent */
+    border-left-color: #10b981;  /* emerald */
+}
+
+.admonition.danger {
+    background-color: rgba(239, 68, 68, 0.1);  /* red semi-transparent */
+    border-left-color: #ef4444;  /* red */
 }
 
 .admonition-title {
     font-weight: 700;
     margin-bottom: 0.5em;
+    color: #f9fafb;  /* text-primary */
 }
 
 /* ============================================================================
@@ -266,26 +308,28 @@ code.literal {
 
 table.docutils {
     border-collapse: collapse;
-    border: 1px solid #e1e4e8;
+    border: 1px solid #374151;  /* slate-700 */
     margin: 1.5em 0;
     width: 100%;
 }
 
 table.docutils th {
-    background-color: #f6f8fa;
-    border: 1px solid #e1e4e8;
+    background-color: #1e293b;  /* slate-800 */
+    border: 1px solid #374151;  /* slate-700 */
     padding: 10px;
     text-align: left;
     font-weight: 600;
+    color: #f9fafb;  /* text-primary */
 }
 
 table.docutils td {
-    border: 1px solid #e1e4e8;
+    border: 1px solid #374151;  /* slate-700 */
     padding: 10px;
+    color: #d1d5db;  /* text-secondary */
 }
 
 table.docutils tr:hover {
-    background-color: #fafbfc;
+    background-color: #1e293b;  /* slate-800 */
 }
 
 /* ============================================================================
@@ -294,11 +338,11 @@ table.docutils tr:hover {
 
 /* Sidebar improvements */
 .wy-nav-side {
-    background-color: #1f2937;  /* gray-800 - matches website */
+    background-color: #1f2937;  /* slate-800 - matches website */
 }
 
 .wy-side-nav-search {
-    background-color: #111827;  /* gray-900 - matches website */
+    background-color: #111827;  /* slate-900 - matches website */
 }
 
 .wy-menu-vertical a {
@@ -306,13 +350,18 @@ table.docutils tr:hover {
 }
 
 .wy-menu-vertical a:hover {
-    background-color: #374151;  /* gray-700 - matches website */
+    background-color: #374151;  /* slate-700 - matches website */
     color: #ffffff;
 }
 
 .wy-menu-vertical li.current > a {
-    background-color: #2563eb;  /* blue-600 - matches website */
+    background-color: #10b981;  /* emerald-500 */
     color: #ffffff;
+}
+
+/* Sidebar caption styling */
+.wy-menu-vertical .caption {
+    color: #10b981;  /* emerald accent */
 }
 
 /* Breadcrumbs */
@@ -321,7 +370,19 @@ table.docutils tr:hover {
 }
 
 .wy-breadcrumbs li {
-    color: #6b7280;
+    color: #9ca3af;  /* text-muted */
+}
+
+.wy-breadcrumbs a {
+    color: #10b981;  /* emerald */
+}
+
+.wy-breadcrumbs-aside a {
+    color: #9ca3af;  /* text-muted */
+}
+
+.wy-breadcrumbs-aside a:hover {
+    color: #10b981;  /* emerald */
 }
 
 /* ============================================================================
@@ -361,17 +422,17 @@ table.docutils tr:hover {
    ============================================================================ */
 
 a {
-    color: #2563eb;
+    color: #10b981;  /* emerald */
     text-decoration: none;
 }
 
 a:hover {
-    color: #1d4ed8;
+    color: #34d399;  /* emerald-light */
     text-decoration: underline;
 }
 
 a.reference.internal {
-    border-bottom: 1px dotted #93c5fd;
+    border-bottom: 1px dotted #34d399;  /* emerald-light */
 }
 
 /* Remove dotted underlines from sidebar links */
@@ -451,7 +512,28 @@ a.download:hover {
 .site-nav-bar a:link,
 .site-nav-bar a:visited,
 .site-nav-bar a:active {
-    color: #ffffff !important;
+    color: #d1d5db !important;  /* text-secondary */
+    border-bottom: none !important;
+}
+
+.site-nav-bar a:first-child {
+    color: #ffffff !important;  /* Logo stays white */
+}
+
+.site-nav-bar a:hover {
+    color: #34d399 !important;  /* emerald-light on hover */
+    text-decoration: none !important;
+}
+
+/* Sidebar search input styling */
+.wy-side-nav-search input[type="text"] {
+    background-color: #1e293b;  /* slate-800 */
+    border: 1px solid #374151;  /* slate-700 */
+    color: #d1d5db;  /* text-secondary */
+}
+
+.wy-side-nav-search input[type="text"]::placeholder {
+    color: #6b7280;  /* gray-500 */
 }
 
 /* Remove vertical separators between sidebar sections */
@@ -480,6 +562,7 @@ a.download:hover {
     /* Adjust mobile menu button position */
     .wy-nav-top {
         top: 48px;
+        background-color: #1f2937;  /* slate-800 */
     }
 
     .wy-nav-side {
@@ -490,6 +573,61 @@ a.download:hover {
     .wy-nav-content-wrap {
         margin-top: 48px;
     }
+}
+
+/* RST content text colors for dark theme */
+.rst-content p,
+.rst-content li,
+.rst-content dd,
+.rst-content dt {
+    color: #d1d5db;  /* text-secondary */
+}
+
+.rst-content strong {
+    color: #f9fafb;  /* text-primary */
+}
+
+/* Footer styling */
+footer {
+    color: #9ca3af;  /* text-muted */
+}
+
+footer a {
+    color: #10b981;  /* emerald */
+}
+
+/* Version selector / RTD badge */
+.rst-versions {
+    background-color: #111827;  /* slate-900 */
+    color: #d1d5db;
+}
+
+.rst-versions a {
+    color: #10b981;  /* emerald */
+}
+
+/* Toctree caption (section titles in sidebar) */
+.wy-menu-vertical p.caption {
+    color: #10b981;  /* emerald */
+}
+
+/* Nested toctree items */
+.wy-menu-vertical li.toctree-l2 a,
+.wy-menu-vertical li.toctree-l3 a {
+    color: #9ca3af;  /* text-muted */
+}
+
+.wy-menu-vertical li.toctree-l2.current > a,
+.wy-menu-vertical li.toctree-l3.current > a {
+    background-color: rgba(16, 185, 129, 0.2);  /* emerald semi-transparent */
+    color: #34d399;  /* emerald-light */
+}
+
+/* Definition lists */
+.rst-content dl dt {
+    background-color: #1e293b;  /* slate-800 */
+    border-top: 3px solid #10b981;  /* emerald */
+    color: #f9fafb;  /* text-primary */
 }
 
 /* ============================================================================
