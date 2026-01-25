@@ -1,0 +1,28 @@
+{
+  "name": "cleanroom-design-system",
+  "version": "1.0.0",
+  "description": "Unified design system for Cleanroom Labs website and documentation",
+  "main": "tokens/colors.js",
+  "scripts": {
+    "build": "node scripts/build-sphinx-css.js",
+    "build:sphinx-css": "node scripts/build-sphinx-css.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:cleanroom-labs/cleanroom-design-system.git"
+  },
+  "keywords": [
+    "design-system",
+    "design-tokens",
+    "tailwind",
+    "sphinx"
+  ],
+  "author": "Cleanroom Labs",
+  "license": "MIT",
+  "files": [
+    "tokens/",
+    "tailwind/",
+    "sphinx/",
+    "scripts/"
+  ]
+}

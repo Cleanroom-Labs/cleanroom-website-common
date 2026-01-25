@@ -1,111 +1,128 @@
-# Sphinx Theme
+# Cleanroom Design System
 
-Unified Sphinx documentation theme for AirGap project documentation.
+Unified design system for Cleanroom Labs - the single source of truth for design tokens used across the main website and Sphinx documentation.
 
 ## Overview
 
-This repository provides a single source of truth for Sphinx configuration and styling across all AirGap project documentation. Each project includes this as a git submodule.
+This repository provides:
+- **Design Tokens**: Centralized color, font, and spacing definitions
+- **Tailwind Preset**: Ready-to-use preset for the main Next.js website
+- **Sphinx Theme**: Auto-generated CSS and templates for documentation
 
-## Contents
+## Repository Structure
 
-- `theme_config.py` - Complete Sphinx configuration including theme, extensions, and sphinx-needs settings
-- `_static/custom.css` - Custom CSS styling for IEEE-compliant technical documentation
-- `requirements.txt` - Python dependencies for Sphinx documentation
+```
+cleanroom-design-system/
+├── tokens/
+│   └── colors.js           # Single source of truth for all design tokens
+├── tailwind/
+│   └── preset.js           # Tailwind preset that imports tokens
+├── sphinx/
+│   ├── _static/
+│   │   └── custom.css      # Generated CSS for Sphinx docs
+│   └── _templates/
+│       └── layout.html     # Sphinx layout with navigation bar
+├── scripts/
+│   └── build-sphinx-css.js # Script to generate CSS from tokens
+├── theme_config.py         # Sphinx configuration (extensions, theme settings)
+├── package.json            # npm scripts
+└── requirements.txt        # Python dependencies for Sphinx
+```
 
 ## Usage
 
-### Adding to a Project
+### Main Website (Tailwind)
 
-Add this repository as a submodule in your project's `source/` directory:
+Add as a submodule and use the preset in your `tailwind.config.js`:
 
-```bash
-cd your-project/source
-git submodule add <repository-url> sphinx-theme
+```javascript
+const designPreset = require('./cleanroom-design-system/tailwind/preset');
+
+module.exports = {
+  presets: [designPreset],
+  content: ['./pages/**/*.{js,jsx}', './components/**/*.{js,jsx}'],
+  // ... rest of your config
+};
 ```
 
-### Configuring conf.py
+### Sphinx Documentation
 
-In your project's `conf.py`, import the shared configuration:
+Add as a submodule to your docs `source/` directory:
+
+```bash
+git submodule add <repo-url> source/sphinx-theme
+```
+
+In your `conf.py`:
 
 ```python
 import sys
 import os
 
-# Add sphinx-theme submodule to path (local to this repo)
 sys.path.insert(0, os.path.abspath('sphinx-theme'))
 from theme_config import *
 
-# -- Project information -----------------------------------------------------
-project = 'Your Project Name'
-copyright = '2024, Cleanroom Labs'
-author = 'Cleanroom Labs'
-version = '0.1.0'
-release = '0.1.0'
-
-# -- Project-specific sphinx-needs types -------------------------------------
-needs_types = [
-    {'directive': 'usecase', 'title': 'Use Case', 'prefix': 'UC-PROJECT-', 'color': '#BFD8D2', 'style': 'node'},
-    {'directive': 'req', 'title': 'Requirement', 'prefix': 'FR-PROJECT-', 'color': '#FEDCD2', 'style': 'node'},
-    # ... add your project-specific types
-]
-
-# -- Project-specific intersphinx mapping ------------------------------------
-intersphinx_mapping.update({
-    'other-project': ('https://cleanroomlabs.dev/docs/other-project/', None),
-})
-
-# -- Project-specific HTML context -------------------------------------------
-html_title = 'Your Project Documentation'
-html_context = {
-    'display_github': True,
-    'github_user': 'cleanroom-labs',
-    'github_repo': 'your-project-docs',
-    'github_version': 'main',
-    'conf_py_path': '/source/',
-}
+project = 'Your Project'
+# ... rest of your config
 ```
 
-### Updating the Theme
+## Building
 
-To update to the latest theme version:
+### Regenerate Sphinx CSS
+
+After modifying design tokens, regenerate the CSS:
+
+```bash
+npm run build:sphinx-css
+```
+
+This reads `tokens/colors.js` and generates `sphinx/_static/custom.css`.
+
+## Design Tokens
+
+All colors are defined in `tokens/colors.js`:
+
+| Category | Tokens |
+|----------|--------|
+| Backgrounds | slate-950, slate-900, slate-800, slate-700, content-bg, code-bg |
+| Text | text-primary, text-secondary, text-muted, code-text |
+| Accent | emerald, emerald-light, emerald-dark |
+| Semantic | warning, danger, info, success |
+| UI Colors | purple, yellow, orange, blue, violet |
+| Syntax | syntax-comment, syntax-keyword, syntax-string, etc. |
+
+## Updating
+
+To update the design system in a project:
 
 ```bash
 cd your-project
-git submodule update --remote sphinx-theme
+git submodule update --remote sphinx-theme  # or design-system
 git add sphinx-theme
-git commit -m "Update sphinx-theme submodule"
+git commit -m "Update design system"
 ```
 
-## Provided Configuration
-
-### Theme
-- `sphinx_rtd_theme` with navigation depth 4
-- Sticky navigation, external link styling
-- Blue header background (#2980B9)
+## Sphinx Configuration
 
 ### Extensions
 - `sphinx.ext.autodoc` - API documentation
 - `sphinx.ext.intersphinx` - Cross-project references
-- `sphinx.ext.todo` - TODO directives
-- `sphinx.ext.viewcode` - Source code links
 - `sphinx.ext.graphviz` - Diagram generation
 - `sphinx_needs` - Requirements traceability
 - `myst_parser` - Markdown support
 
-### Sphinx-Needs Base Configuration
-- Flow diagram generation enabled (graphviz engine)
+### Sphinx-Needs
+- Flow diagrams enabled (graphviz engine)
 - ID regex: `^[A-Z0-9_-]{3,}`
-- Extra options: `priority`
-- Link types: `tests`, `implements`, `satisfies`, `derives`
+- Link types: tests, implements, satisfies, derives
 
-### CSS Styling
-- Professional IEEE-compliant styling
+### CSS Features
+- Dark theme matching main website
 - Colored left borders for sphinx-needs directives:
-  - Use cases: Blue (#3b82c4)
-  - Requirements: Orange (#f97316)
-  - Tests: Green (#10b981)
-  - Implementations: Purple (#8b5cf6)
-  - Specifications: Yellow (#eab308)
-- Gradient table headers
-- Mobile responsive
+  - Use cases: Blue
+  - Requirements: Orange
+  - Tests: Emerald
+  - Implementations: Purple
+  - Specifications: Yellow
+- Responsive design
 - Print-friendly styles

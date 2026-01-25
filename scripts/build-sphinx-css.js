@@ -1,0 +1,689 @@
+#!/usr/bin/env node
+
+/**
+ * Cleanroom Design System - Sphinx CSS Generator
+ *
+ * Generates sphinx/_static/custom.css from design tokens.
+ * Run: npm run build:sphinx-css
+ */
+
+const fs = require('fs');
+const path = require('path');
+const tokens = require('../tokens/colors');
+
+// Generate CSS custom properties from tokens
+function generateCSSVariables(colors) {
+  return Object.entries(colors)
+    .map(([name, value]) => `  --color-${name}: ${value};`)
+    .join('\n');
+}
+
+// Main CSS template using variables
+function generateCSS(tokens) {
+  const colors = tokens.colors;
+
+  return `/* ============================================================================
+   Cleanroom Design System - Sphinx Theme
+   Auto-generated from design tokens - DO NOT EDIT DIRECTLY
+   Edit tokens/colors.js and run: npm run build:sphinx-css
+   ============================================================================ */
+
+:root {
+${generateCSSVariables(colors)}
+}
+
+/* ============================================================================
+   Layout and Typography
+   ============================================================================ */
+
+.document {
+    max-width: 980px;
+    line-height: 1.7;
+}
+
+body {
+    font-family: ${tokens.fonts.sans.join(', ')};
+    color: var(--color-text-secondary);
+}
+
+.wy-nav-content {
+    background-color: var(--color-content-bg);
+}
+
+.wy-nav-content-wrap {
+    background-color: var(--color-content-bg);
+}
+
+code, pre, .highlight {
+    font-family: ${tokens.fonts.mono.join(', ')};
+    font-size: 0.9em;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-text-primary);
+}
+
+h1 {
+    border-bottom: 3px solid var(--color-emerald);
+    padding-bottom: 0.3em;
+    margin-top: 1.5em;
+    font-size: 2.2em;
+}
+
+.rst-content h2 {
+    border-bottom: 2px solid var(--color-emerald);
+    padding-bottom: 0.2em;
+    margin-top: 2em !important;
+    margin-bottom: 1em !important;
+    font-size: 1.8em;
+    color: var(--color-text-primary);
+}
+
+h3 {
+    color: var(--color-text-primary);
+    margin-top: 1.2em;
+    font-size: 1.4em;
+}
+
+/* List spacing */
+.rst-content ul,
+.rst-content ol {
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+}
+
+.rst-content li:not(.toctree-l1):not(.toctree-l2):not(.toctree-l3) {
+    margin-bottom: 0.5em;
+}
+
+.rst-content section ul.simple li > p,
+.rst-content section ol.simple li > p,
+.rst-content .section ul.simple li > p,
+.rst-content .section ol.simple li > p {
+    margin-bottom: 0;
+}
+
+.rst-content .toctree-wrapper > p.caption {
+    margin-top: 2em !important;
+}
+
+.rst-content section {
+    margin-top: 2em;
+}
+
+/* ============================================================================
+   sphinx-needs Directive Styling
+   ============================================================================ */
+
+.needs_head {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: var(--color-text-primary);
+}
+
+.needs_id {
+    font-family: ${tokens.fonts.mono.join(', ')};
+    background-color: var(--color-code-bg);
+    border: 1px solid var(--color-slate-700);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.95em;
+    color: var(--color-code-text);
+}
+
+.needstable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.needstable th {
+    background: linear-gradient(to bottom, var(--color-code-bg) 0%, var(--color-content-bg) 100%);
+    color: var(--color-text-primary);
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    border: 1px solid var(--color-slate-700);
+}
+
+.needstable td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--color-slate-700);
+    color: var(--color-text-secondary);
+}
+
+.needstable tr:hover {
+    background-color: var(--color-code-bg);
+}
+
+.needstable tr:nth-child(even) {
+    background-color: rgba(30, 41, 59, 0.5);
+}
+
+/* Use case highlighting */
+.usecase {
+    border-left: 5px solid var(--color-info);
+    background: linear-gradient(to right, rgba(59, 130, 196, 0.1) 0%, transparent 100%);
+    padding: 15px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.usecase .needs_head {
+    color: var(--color-blue);
+}
+
+/* Requirement highlighting */
+.req, .nfreq {
+    border-left: 5px solid var(--color-orange);
+    background: linear-gradient(to right, rgba(249, 115, 22, 0.1) 0%, transparent 100%);
+    padding: 15px;
+    padding-left: 20px;
+    margin-bottom: 15px;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.req .needs_head, .nfreq .needs_head {
+    color: #fb923c;  /* orange-400 */
+}
+
+/* Test case highlighting */
+.test {
+    border-left: 5px solid var(--color-emerald);
+    background: linear-gradient(to right, rgba(16, 185, 129, 0.1) 0%, transparent 100%);
+    padding: 15px;
+    padding-left: 20px;
+    margin-bottom: 15px;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.test .needs_head {
+    color: var(--color-emerald-light);
+}
+
+/* Implementation highlighting */
+.impl {
+    border-left: 5px solid var(--color-purple);
+    background: linear-gradient(to right, rgba(139, 92, 246, 0.1) 0%, transparent 100%);
+    padding: 15px;
+    padding-left: 20px;
+    margin-bottom: 15px;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.impl .needs_head {
+    color: var(--color-violet);
+}
+
+/* Design specification highlighting */
+.spec {
+    border-left: 5px solid var(--color-yellow);
+    background: linear-gradient(to right, rgba(234, 179, 8, 0.1) 0%, transparent 100%);
+    padding: 15px;
+    padding-left: 20px;
+    margin-bottom: 15px;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.spec .needs_head {
+    color: #facc15;  /* yellow-400 */
+}
+
+/* ============================================================================
+   Code Blocks and Syntax Highlighting
+   ============================================================================ */
+
+.highlight {
+    border-radius: 4px;
+    border: 1px solid var(--color-slate-700);
+    background-color: var(--color-code-bg);
+    padding: 1em;
+    margin: 1em 0;
+    overflow-x: auto;
+}
+
+.highlight pre {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    color: var(--color-code-text);
+}
+
+/* Inline code */
+code.literal {
+    background-color: var(--color-code-bg);
+    border: 1px solid var(--color-slate-700);
+    border-radius: 3px;
+    padding: 0.2em 0.4em;
+    color: var(--color-code-text);
+    font-size: 0.9em;
+}
+
+/* Syntax highlighting */
+.highlight .c, .highlight .c1, .highlight .cm { color: var(--color-syntax-comment); }
+.highlight .k, .highlight .kn, .highlight .kd { color: var(--color-syntax-keyword); }
+.highlight .s, .highlight .s1, .highlight .s2 { color: var(--color-syntax-string); }
+.highlight .n, .highlight .na, .highlight .nb { color: var(--color-syntax-name); }
+.highlight .nf { color: var(--color-syntax-function); }
+.highlight .o, .highlight .p { color: var(--color-syntax-operator); }
+.highlight .mi, .highlight .mf { color: var(--color-syntax-number); }
+
+/* ============================================================================
+   Admonitions (Notes, Warnings, etc.)
+   ============================================================================ */
+
+.admonition {
+    border-radius: 4px;
+    padding: 12px;
+    margin: 1.5em 0;
+    border-left: 4px solid;
+    color: var(--color-text-secondary);
+}
+
+.admonition.note {
+    background-color: rgba(16, 185, 129, 0.1);
+    border-left-color: var(--color-emerald);
+}
+
+.admonition.warning {
+    background-color: rgba(245, 158, 11, 0.1);
+    border-left-color: var(--color-warning);
+}
+
+.admonition.important {
+    background-color: rgba(239, 68, 68, 0.1);
+    border-left-color: var(--color-danger);
+}
+
+.admonition.tip {
+    background-color: rgba(16, 185, 129, 0.1);
+    border-left-color: var(--color-emerald);
+}
+
+.admonition.danger {
+    background-color: rgba(239, 68, 68, 0.1);
+    border-left-color: var(--color-danger);
+}
+
+.admonition-title {
+    font-weight: 700;
+    margin-bottom: 0.5em;
+    color: var(--color-text-primary);
+}
+
+/* ============================================================================
+   Tables
+   ============================================================================ */
+
+table.docutils {
+    border-collapse: collapse;
+    border: 1px solid var(--color-slate-700);
+    margin: 1.5em 0;
+    width: 100%;
+}
+
+table.docutils th {
+    background-color: var(--color-code-bg);
+    border: 1px solid var(--color-slate-700);
+    padding: 10px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+table.docutils td {
+    border: 1px solid var(--color-slate-700);
+    padding: 10px;
+    color: var(--color-text-secondary);
+}
+
+table.docutils tr:hover {
+    background-color: var(--color-code-bg);
+}
+
+/* ============================================================================
+   Navigation and Sidebar
+   ============================================================================ */
+
+.wy-nav-side {
+    background-color: var(--color-slate-800);
+}
+
+.wy-side-nav-search {
+    background-color: var(--color-slate-900);
+}
+
+.wy-menu-vertical a {
+    color: var(--color-text-secondary);
+}
+
+.wy-menu-vertical a:hover {
+    background-color: var(--color-slate-700);
+    color: #ffffff;
+}
+
+.wy-menu-vertical li.current > a {
+    background-color: var(--color-emerald);
+    color: #ffffff;
+}
+
+.wy-menu-vertical .caption {
+    color: var(--color-emerald);
+}
+
+/* Breadcrumbs */
+.wy-breadcrumbs {
+    margin-bottom: 1.5em;
+}
+
+.wy-breadcrumbs li {
+    color: var(--color-text-muted);
+}
+
+.wy-breadcrumbs a {
+    color: var(--color-emerald);
+}
+
+.wy-breadcrumbs-aside a {
+    color: var(--color-text-muted);
+}
+
+.wy-breadcrumbs-aside a:hover {
+    color: var(--color-emerald);
+}
+
+/* ============================================================================
+   Mobile Responsiveness
+   ============================================================================ */
+
+@media screen and (max-width: 768px) {
+    .document {
+        max-width: 100%;
+        padding: 0 1em;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .rst-content h2 {
+        font-size: 1.5em;
+    }
+
+    .needstable {
+        font-size: 0.9em;
+    }
+
+    .needstable th,
+    .needstable td {
+        padding: 8px;
+    }
+
+    .highlight {
+        font-size: 0.85em;
+    }
+}
+
+/* ============================================================================
+   Links and Cross-References
+   ============================================================================ */
+
+a {
+    color: var(--color-emerald);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color-emerald-light);
+    text-decoration: underline;
+}
+
+a.reference.internal {
+    border-bottom: 1px dotted var(--color-emerald-light);
+}
+
+.wy-menu-vertical a.reference.internal {
+    border-bottom: none;
+}
+
+a.reference.external::after {
+    content: " \\2197";
+    font-size: 0.8em;
+    opacity: 0.6;
+}
+
+/* ============================================================================
+   Special Elements
+   ============================================================================ */
+
+/* Download links */
+a.download {
+    background-color: var(--color-emerald);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 4px 0;
+}
+
+a.download:hover {
+    background-color: var(--color-emerald-dark);
+    text-decoration: none;
+}
+
+/* Version badge */
+.version {
+    background-color: #6366f1;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+/* Status badges */
+.status-approved {
+    background-color: var(--color-emerald);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.status-pending {
+    background-color: var(--color-warning);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+.status-rejected {
+    background-color: var(--color-danger);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.85em;
+    font-weight: 600;
+}
+
+/* ============================================================================
+   Top Navigation Bar
+   ============================================================================ */
+
+.site-nav-bar a,
+.site-nav-bar a:link,
+.site-nav-bar a:visited,
+.site-nav-bar a:active {
+    color: var(--color-text-secondary) !important;
+    border-bottom: none !important;
+}
+
+.site-nav-bar a:first-child {
+    color: #ffffff !important;
+}
+
+.site-nav-bar a:hover {
+    color: var(--color-emerald-light) !important;
+    text-decoration: none !important;
+}
+
+/* Sidebar search input */
+.wy-side-nav-search input[type="text"] {
+    background-color: var(--color-code-bg);
+    border: 1px solid var(--color-slate-700);
+    color: var(--color-text-secondary);
+}
+
+.wy-side-nav-search input[type="text"]::placeholder {
+    color: var(--color-syntax-comment);
+}
+
+/* Remove vertical separators between sidebar sections */
+.wy-menu-vertical .caption {
+    border-bottom: none !important;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Adjust RTD theme layout for fixed header */
+.wy-nav-side {
+    top: 56px;
+    height: calc(100% - 56px);
+}
+
+.wy-nav-content-wrap {
+    margin-top: 56px;
+}
+
+.wy-side-nav-search {
+    margin-top: 0;
+}
+
+/* Mobile nav adjustments */
+@media screen and (max-width: 768px) {
+    .wy-nav-top {
+        top: 48px;
+        background-color: var(--color-slate-800);
+    }
+
+    .wy-nav-side {
+        top: 48px;
+        height: calc(100% - 48px);
+    }
+
+    .wy-nav-content-wrap {
+        margin-top: 48px;
+    }
+}
+
+/* RST content text colors */
+.rst-content p,
+.rst-content li,
+.rst-content dd,
+.rst-content dt {
+    color: var(--color-text-secondary);
+}
+
+.rst-content strong {
+    color: var(--color-text-primary);
+}
+
+/* Footer styling */
+footer {
+    color: var(--color-text-muted);
+}
+
+footer a {
+    color: var(--color-emerald);
+}
+
+/* Version selector / RTD badge */
+.rst-versions {
+    background-color: var(--color-slate-900);
+    color: var(--color-text-secondary);
+}
+
+.rst-versions a {
+    color: var(--color-emerald);
+}
+
+/* Toctree caption (section titles in sidebar) */
+.wy-menu-vertical p.caption {
+    color: var(--color-emerald);
+}
+
+/* Nested toctree items */
+.wy-menu-vertical li.toctree-l2 a,
+.wy-menu-vertical li.toctree-l3 a {
+    color: var(--color-text-muted);
+}
+
+.wy-menu-vertical li.toctree-l2.current > a,
+.wy-menu-vertical li.toctree-l3.current > a {
+    background-color: rgba(16, 185, 129, 0.2);
+    color: var(--color-emerald-light);
+}
+
+/* Definition lists */
+.rst-content dl dt {
+    background-color: var(--color-code-bg);
+    border-top: 3px solid var(--color-emerald);
+    color: var(--color-text-primary);
+}
+
+/* ============================================================================
+   Print Styles
+   ============================================================================ */
+
+@media print {
+    .wy-nav-side,
+    .wy-nav-content-wrap,
+    .rst-versions {
+        display: none;
+    }
+
+    .document {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+
+    .usecase, .req, .nfreq, .test, .impl, .spec {
+        page-break-inside: avoid;
+    }
+}
+`;
+}
+
+// Main execution
+const outputPath = path.join(__dirname, '../sphinx/_static/custom.css');
+const outputDir = path.dirname(outputPath);
+
+// Ensure output directory exists
+if (!fs.existsSync(outputDir)) {
+  fs.mkdirSync(outputDir, { recursive: true });
+}
+
+// Generate and write CSS
+const css = generateCSS(tokens);
+fs.writeFileSync(outputPath, css);
+
+console.log(`Generated: ${outputPath}`);
+console.log(`  - ${Object.keys(tokens.colors).length} color tokens`);
+console.log(`  - ${tokens.fonts.sans.length + tokens.fonts.mono.length} font entries`);
