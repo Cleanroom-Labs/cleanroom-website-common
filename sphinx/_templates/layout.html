@@ -47,5 +47,17 @@
         </div>
     </div>
 </nav>
+<script>
+// Sidebar project ordering: Add data attributes for CSS ordering
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.wy-menu-vertical li.toctree-l1 > a').forEach(function(link) {
+        var text = link.textContent.toLowerCase();
+        var li = link.parentElement;
+        if (text.includes('transfer')) li.dataset.project = 'transfer';
+        else if (text.includes('deploy')) li.dataset.project = 'deploy';
+        else if (text.includes('whisper')) li.dataset.project = 'whisper';
+    });
+});
+</script>
 {{ super() }}
 {% endblock %}

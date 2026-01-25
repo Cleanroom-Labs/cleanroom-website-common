@@ -698,6 +698,8 @@ footer a {
    Sidebar Project Ordering Fix
    Forces consistent ordering: AirGap Transfer, AirGap Deploy, Cleanroom Whisper
    regardless of which page is currently being viewed.
+
+   Uses data-project attributes set by JavaScript in layout.html.
    ============================================================================ */
 
 /* Make the Projects section ul a flex container */
@@ -706,16 +708,16 @@ footer a {
     flex-direction: column;
 }
 
-/* Assign explicit order to each project */
-.wy-menu-vertical li.toctree-l1:has(> a[href*="transfer"]) {
+/* Assign explicit order to each project based on data attribute */
+.wy-menu-vertical li.toctree-l1[data-project="transfer"] {
     order: 1;
 }
 
-.wy-menu-vertical li.toctree-l1:has(> a[href*="deploy"]) {
+.wy-menu-vertical li.toctree-l1[data-project="deploy"] {
     order: 2;
 }
 
-.wy-menu-vertical li.toctree-l1:has(> a[href*="whisper"]) {
+.wy-menu-vertical li.toctree-l1[data-project="whisper"] {
     order: 3;
 }
 
