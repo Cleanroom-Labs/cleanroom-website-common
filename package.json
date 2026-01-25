@@ -4,8 +4,9 @@
   "description": "Unified design system for Cleanroom Labs website and documentation",
   "main": "tokens/colors.js",
   "scripts": {
-    "build": "node scripts/build-sphinx-css.js",
-    "build:sphinx-css": "node scripts/build-sphinx-css.js"
+    "build": "npm run build:sphinx-css && npm run build:sphinx-nav",
+    "build:sphinx-css": "node scripts/build-sphinx-css.js",
+    "build:sphinx-nav": "node scripts/build-sphinx-nav.js"
   },
   "repository": {
     "type": "git",

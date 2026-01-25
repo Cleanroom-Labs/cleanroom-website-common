@@ -362,7 +362,8 @@ table.docutils tr:hover {
     background-color: var(--color-slate-900);
 }
 
-.wy-menu-vertical a {
+.wy-menu-vertical a,
+.wy-menu-vertical a:visited {
     color: var(--color-text-secondary);
 }
 
@@ -543,6 +544,8 @@ a.download:hover {
 .wy-side-nav-search input[type="text"] {
     background-color: var(--color-code-bg);
     border: 1px solid var(--color-slate-700);
+    border-radius: 4px;
+    box-shadow: none;
     color: var(--color-text-secondary);
 }
 
@@ -626,8 +629,10 @@ footer a {
 
 /* Nested toctree items */
 .wy-menu-vertical li.toctree-l2 a,
-.wy-menu-vertical li.toctree-l3 a {
-    color: var(--color-text-muted);
+.wy-menu-vertical li.toctree-l2 a:visited,
+.wy-menu-vertical li.toctree-l3 a,
+.wy-menu-vertical li.toctree-l3 a:visited {
+    color: var(--color-text-secondary);
 }
 
 .wy-menu-vertical li.toctree-l2.current > a,
