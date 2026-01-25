@@ -13,13 +13,20 @@ const nav = require('../tokens/navigation');
 const tokens = require('../tokens/colors');
 
 // Generate Tailwind config with design system colors
+// Uses nested structure required by Tailwind for color variants (e.g., emerald.light for hover:text-emerald-light)
 function generateTailwindConfig(colors) {
   const tailwindColors = {
-    'text-secondary': colors['text-secondary'],
-    'emerald': colors['emerald'],
-    'emerald-light': colors['emerald-light'],
-    'slate-700': colors['slate-700'],
-    'slate-800': colors['slate-800'],
+    text: {
+      secondary: colors['text-secondary']
+    },
+    emerald: {
+      DEFAULT: colors['emerald'],
+      light: colors['emerald-light']
+    },
+    slate: {
+      700: colors['slate-700'],
+      800: colors['slate-800']
+    }
   };
 
   return `tailwind.config = {
