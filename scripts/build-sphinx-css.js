@@ -47,11 +47,11 @@ body {
 }
 
 .wy-nav-content {
-    background-color: var(--color-content-bg);
+    background: var(--color-content-bg) !important;
 }
 
 .wy-nav-content-wrap {
-    background-color: var(--color-content-bg);
+    background: var(--color-content-bg) !important;
 }
 
 code, pre, .highlight {
