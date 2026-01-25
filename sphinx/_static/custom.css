@@ -12,6 +12,13 @@
   --color-slate-600: #4b5563;
   --color-content-bg: #0f172a;
   --color-code-bg: #1e293b;
+  --color-docs-content-bg: #ffffff;
+  --color-docs-code-bg: #f8fafc;
+  --color-docs-text-primary: #1e293b;
+  --color-docs-text-secondary: #334155;
+  --color-docs-text-muted: #64748b;
+  --color-docs-code-text: #1e293b;
+  --color-docs-border: #e2e8f0;
   --color-text-primary: #f9fafb;
   --color-text-secondary: #d1d5db;
   --color-text-muted: #9ca3af;
@@ -49,15 +56,15 @@
 
 body {
     font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
-    color: var(--color-text-secondary);
 }
 
+/* Content area - light theme for readability */
 .wy-nav-content {
-    background: var(--color-content-bg) !important;
+    background: var(--color-docs-content-bg) !important;
 }
 
 .wy-nav-content-wrap {
-    background: var(--color-content-bg) !important;
+    background: var(--color-docs-content-bg) !important;
 }
 
 code, pre, .highlight {
@@ -65,9 +72,9 @@ code, pre, .highlight {
     font-size: 0.9em;
 }
 
-/* Headings */
+/* Headings - dark text on light background */
 h1, h2, h3, h4, h5, h6 {
-    color: var(--color-text-primary);
+    color: var(--color-docs-text-primary);
 }
 
 h1 {
@@ -83,11 +90,11 @@ h1 {
     margin-top: 2em !important;
     margin-bottom: 1em !important;
     font-size: 1.8em;
-    color: var(--color-text-primary);
+    color: var(--color-docs-text-primary);
 }
 
 h3 {
-    color: var(--color-text-primary);
+    color: var(--color-docs-text-primary);
     margin-top: 1.2em;
     font-size: 1.4em;
 }
@@ -125,122 +132,122 @@ h3 {
 .needs_head {
     font-weight: bold;
     font-size: 1.1em;
-    color: var(--color-text-primary);
+    color: var(--color-docs-text-primary);
 }
 
 .needs_id {
     font-family: Monaco, Menlo, Ubuntu Mono, Consolas, source-code-pro, monospace;
-    background-color: var(--color-code-bg);
-    border: 1px solid var(--color-slate-700);
+    background-color: var(--color-docs-code-bg);
+    border: 1px solid var(--color-docs-border);
     padding: 2px 6px;
     border-radius: 3px;
     font-size: 0.95em;
-    color: var(--color-code-text);
+    color: var(--color-docs-code-text);
 }
 
 .needstable {
     width: 100%;
     border-collapse: collapse;
     margin: 1.5em 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .needstable th {
-    background: linear-gradient(to bottom, var(--color-code-bg) 0%, var(--color-content-bg) 100%);
-    color: var(--color-text-primary);
+    background: var(--color-docs-code-bg);
+    color: var(--color-docs-text-primary);
     padding: 12px;
     text-align: left;
     font-weight: 600;
-    border: 1px solid var(--color-slate-700);
+    border: 1px solid var(--color-docs-border);
 }
 
 .needstable td {
     padding: 10px 12px;
-    border-bottom: 1px solid var(--color-slate-700);
-    color: var(--color-text-secondary);
+    border-bottom: 1px solid var(--color-docs-border);
+    color: var(--color-docs-text-secondary);
 }
 
 .needstable tr:hover {
-    background-color: var(--color-code-bg);
+    background-color: var(--color-docs-code-bg);
 }
 
 .needstable tr:nth-child(even) {
-    background-color: rgba(30, 41, 59, 0.5);
+    background-color: rgba(248, 250, 252, 0.5);
 }
 
 /* Use case highlighting */
 .usecase {
     border-left: 5px solid var(--color-info);
-    background: linear-gradient(to right, rgba(59, 130, 196, 0.1) 0%, transparent 100%);
+    background: linear-gradient(to right, rgba(59, 130, 246, 0.08) 0%, transparent 100%);
     padding: 15px;
     padding-left: 20px;
     margin-bottom: 20px;
     border-radius: 0 4px 4px 0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .usecase .needs_head {
-    color: var(--color-blue);
+    color: #2563eb;  /* blue-600 for light bg */
 }
 
 /* Requirement highlighting */
 .req, .nfreq {
     border-left: 5px solid var(--color-orange);
-    background: linear-gradient(to right, rgba(249, 115, 22, 0.1) 0%, transparent 100%);
+    background: linear-gradient(to right, rgba(249, 115, 22, 0.08) 0%, transparent 100%);
     padding: 15px;
     padding-left: 20px;
     margin-bottom: 15px;
     border-radius: 0 4px 4px 0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .req .needs_head, .nfreq .needs_head {
-    color: #fb923c;  /* orange-400 */
+    color: #ea580c;  /* orange-600 for light bg */
 }
 
 /* Test case highlighting */
 .test {
     border-left: 5px solid var(--color-emerald);
-    background: linear-gradient(to right, rgba(16, 185, 129, 0.1) 0%, transparent 100%);
+    background: linear-gradient(to right, rgba(16, 185, 129, 0.08) 0%, transparent 100%);
     padding: 15px;
     padding-left: 20px;
     margin-bottom: 15px;
     border-radius: 0 4px 4px 0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .test .needs_head {
-    color: var(--color-emerald-light);
+    color: var(--color-emerald-dark);
 }
 
 /* Implementation highlighting */
 .impl {
     border-left: 5px solid var(--color-purple);
-    background: linear-gradient(to right, rgba(139, 92, 246, 0.1) 0%, transparent 100%);
+    background: linear-gradient(to right, rgba(139, 92, 246, 0.08) 0%, transparent 100%);
     padding: 15px;
     padding-left: 20px;
     margin-bottom: 15px;
     border-radius: 0 4px 4px 0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .impl .needs_head {
-    color: var(--color-violet);
+    color: #7c3aed;  /* violet-600 for light bg */
 }
 
 /* Design specification highlighting */
 .spec {
     border-left: 5px solid var(--color-yellow);
-    background: linear-gradient(to right, rgba(234, 179, 8, 0.1) 0%, transparent 100%);
+    background: linear-gradient(to right, rgba(234, 179, 8, 0.08) 0%, transparent 100%);
     padding: 15px;
     padding-left: 20px;
     margin-bottom: 15px;
     border-radius: 0 4px 4px 0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .spec .needs_head {
-    color: #facc15;  /* yellow-400 */
+    color: #ca8a04;  /* yellow-600 for light bg */
 }
 
 /* ============================================================================
@@ -249,8 +256,8 @@ h3 {
 
 .highlight {
     border-radius: 4px;
-    border: 1px solid var(--color-slate-700);
-    background-color: var(--color-code-bg);
+    border: 1px solid var(--color-docs-border);
+    background-color: var(--color-docs-code-bg);
     padding: 1em;
     margin: 1em 0;
     overflow-x: auto;
@@ -261,27 +268,27 @@ h3 {
     padding: 0;
     background-color: transparent;
     border: none;
-    color: var(--color-code-text);
+    color: var(--color-docs-code-text);
 }
 
 /* Inline code */
 code.literal {
-    background-color: var(--color-code-bg);
-    border: 1px solid var(--color-slate-700);
+    background-color: var(--color-docs-code-bg);
+    border: 1px solid var(--color-docs-border);
     border-radius: 3px;
     padding: 0.2em 0.4em;
-    color: var(--color-code-text);
+    color: #be185d;  /* pink-700 for inline code */
     font-size: 0.9em;
 }
 
-/* Syntax highlighting */
-.highlight .c, .highlight .c1, .highlight .cm { color: var(--color-syntax-comment); }
-.highlight .k, .highlight .kn, .highlight .kd { color: var(--color-syntax-keyword); }
-.highlight .s, .highlight .s1, .highlight .s2 { color: var(--color-syntax-string); }
-.highlight .n, .highlight .na, .highlight .nb { color: var(--color-syntax-name); }
-.highlight .nf { color: var(--color-syntax-function); }
-.highlight .o, .highlight .p { color: var(--color-syntax-operator); }
-.highlight .mi, .highlight .mf { color: var(--color-syntax-number); }
+/* Syntax highlighting - light theme colors */
+.highlight .c, .highlight .c1, .highlight .cm { color: #6b7280; }  /* gray-500 comments */
+.highlight .k, .highlight .kn, .highlight .kd { color: #7c3aed; }  /* violet-600 keywords */
+.highlight .s, .highlight .s1, .highlight .s2 { color: #059669; }  /* emerald-600 strings */
+.highlight .n, .highlight .na, .highlight .nb { color: #1e293b; }  /* slate-800 names */
+.highlight .nf { color: #2563eb; }  /* blue-600 functions */
+.highlight .o, .highlight .p { color: #334155; }  /* slate-700 operators */
+.highlight .mi, .highlight .mf { color: #d97706; }  /* amber-600 numbers */
 
 /* ============================================================================
    Admonitions (Notes, Warnings, etc.)
@@ -292,38 +299,38 @@ code.literal {
     padding: 12px;
     margin: 1.5em 0;
     border-left: 4px solid;
-    color: var(--color-text-secondary);
+    color: var(--color-docs-text-secondary);
 }
 
 .admonition.note {
-    background-color: rgba(16, 185, 129, 0.1);
+    background-color: rgba(16, 185, 129, 0.08);
     border-left-color: var(--color-emerald);
 }
 
 .admonition.warning {
-    background-color: rgba(245, 158, 11, 0.1);
+    background-color: rgba(245, 158, 11, 0.08);
     border-left-color: var(--color-warning);
 }
 
 .admonition.important {
-    background-color: rgba(239, 68, 68, 0.1);
+    background-color: rgba(239, 68, 68, 0.08);
     border-left-color: var(--color-danger);
 }
 
 .admonition.tip {
-    background-color: rgba(16, 185, 129, 0.1);
+    background-color: rgba(16, 185, 129, 0.08);
     border-left-color: var(--color-emerald);
 }
 
 .admonition.danger {
-    background-color: rgba(239, 68, 68, 0.1);
+    background-color: rgba(239, 68, 68, 0.08);
     border-left-color: var(--color-danger);
 }
 
 .admonition-title {
     font-weight: 700;
     margin-bottom: 0.5em;
-    color: var(--color-text-primary);
+    color: var(--color-docs-text-primary);
 }
 
 /* ============================================================================
@@ -332,28 +339,28 @@ code.literal {
 
 table.docutils {
     border-collapse: collapse;
-    border: 1px solid var(--color-slate-700);
+    border: 1px solid var(--color-docs-border);
     margin: 1.5em 0;
     width: 100%;
 }
 
 table.docutils th {
-    background-color: var(--color-code-bg);
-    border: 1px solid var(--color-slate-700);
+    background-color: var(--color-docs-code-bg);
+    border: 1px solid var(--color-docs-border);
     padding: 10px;
     text-align: left;
     font-weight: 600;
-    color: var(--color-text-primary);
+    color: var(--color-docs-text-primary);
 }
 
 table.docutils td {
-    border: 1px solid var(--color-slate-700);
+    border: 1px solid var(--color-docs-border);
     padding: 10px;
-    color: var(--color-text-secondary);
+    color: var(--color-docs-text-secondary);
 }
 
 table.docutils tr:hover {
-    background-color: var(--color-code-bg);
+    background-color: var(--color-docs-code-bg);
 }
 
 /* ============================================================================
@@ -393,19 +400,19 @@ table.docutils tr:hover {
 }
 
 .wy-breadcrumbs li {
-    color: var(--color-text-muted);
+    color: var(--color-docs-text-muted);
 }
 
 .wy-breadcrumbs a {
-    color: var(--color-emerald);
+    color: var(--color-emerald-dark);
 }
 
 .wy-breadcrumbs-aside a {
-    color: var(--color-text-muted);
+    color: var(--color-docs-text-muted);
 }
 
 .wy-breadcrumbs-aside a:hover {
-    color: var(--color-emerald);
+    color: var(--color-emerald-dark);
 }
 
 /* ============================================================================
@@ -444,18 +451,19 @@ table.docutils tr:hover {
    Links and Cross-References
    ============================================================================ */
 
+/* Links in content area - darker for light bg */
 a {
-    color: var(--color-emerald);
+    color: var(--color-emerald-dark);
     text-decoration: none;
 }
 
 a:hover {
-    color: var(--color-emerald-light);
+    color: var(--color-emerald);
     text-decoration: underline;
 }
 
 a.reference.internal {
-    border-bottom: 1px dotted var(--color-emerald-light);
+    border-bottom: 1px dotted var(--color-emerald);
 }
 
 .wy-menu-vertical a.reference.internal {
@@ -597,16 +605,16 @@ a.download:hover {
     }
 }
 
-/* RST content text colors */
+/* RST content text colors - dark on light */
 .rst-content p,
 .rst-content li,
 .rst-content dd,
 .rst-content dt {
-    color: var(--color-text-secondary);
+    color: var(--color-docs-text-secondary);
 }
 
 .rst-content strong {
-    color: var(--color-text-primary);
+    color: var(--color-docs-text-primary);
 }
 
 /* Footer styling */
@@ -649,9 +657,9 @@ footer a {
 
 /* Definition lists */
 .rst-content dl dt {
-    background-color: var(--color-code-bg);
+    background-color: var(--color-docs-code-bg);
     border-top: 3px solid var(--color-emerald);
-    color: var(--color-text-primary);
+    color: var(--color-docs-text-primary);
 }
 
 /* ============================================================================

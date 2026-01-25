@@ -20,9 +20,18 @@ module.exports = {
     'slate-700': '#374151',  // Borders, dividers
     'slate-600': '#4b5563',  // Muted elements
 
-    // Content-specific backgrounds
-    'content-bg': '#0f172a',  // Main content area (docs)
-    'code-bg': '#1e293b',     // Code blocks and inline code
+    // Content-specific backgrounds (website - dark)
+    'content-bg': '#0f172a',  // Main content area (website)
+    'code-bg': '#1e293b',     // Code blocks and inline code (website)
+
+    // Documentation content (light theme for readability)
+    'docs-content-bg': '#ffffff',     // White background for docs
+    'docs-code-bg': '#f8fafc',        // Light gray for code blocks (slate-50)
+    'docs-text-primary': '#1e293b',   // Dark headings (slate-800)
+    'docs-text-secondary': '#334155', // Dark body text (slate-700)
+    'docs-text-muted': '#64748b',     // Muted text (slate-500)
+    'docs-code-text': '#1e293b',      // Dark code text (slate-800)
+    'docs-border': '#e2e8f0',         // Light borders (slate-200)
 
     // ==========================================================================
     // Text Colors
