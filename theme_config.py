@@ -75,6 +75,37 @@ intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),
 }
 
+# -- Sphinx-needs type colors (single source of truth) ----------------------
+
+NEEDS_COLORS = {
+    'usecase': '#BFD8D2',  # teal
+    'req': '#FEDCD2',      # peach
+    'nfreq': '#DF744A',    # rust
+    'spec': '#DCB239',     # gold
+    'test': '#84B39D',     # sage
+    'impl': '#00A8B5',     # cyan
+}
+
+
+def make_needs_types(prefix=''):
+    """Generate needs_types with project-specific prefix.
+
+    Args:
+        prefix: Project prefix to prepend to each type prefix (e.g., 'WHISPER-')
+
+    Returns:
+        List of needs_types configuration dictionaries
+    """
+    return [
+        {'directive': 'usecase', 'title': 'Use Case', 'prefix': f'{prefix}UC-', 'color': NEEDS_COLORS['usecase'], 'style': 'node'},
+        {'directive': 'req', 'title': 'Requirement', 'prefix': f'{prefix}FR-', 'color': NEEDS_COLORS['req'], 'style': 'node'},
+        {'directive': 'nfreq', 'title': 'Non-Functional Requirement', 'prefix': f'{prefix}NFR-', 'color': NEEDS_COLORS['nfreq'], 'style': 'node'},
+        {'directive': 'spec', 'title': 'Design Specification', 'prefix': f'{prefix}DS-', 'color': NEEDS_COLORS['spec'], 'style': 'node'},
+        {'directive': 'test', 'title': 'Test Case', 'prefix': f'{prefix}TC-', 'color': NEEDS_COLORS['test'], 'style': 'node'},
+        {'directive': 'impl', 'title': 'Implementation', 'prefix': f'{prefix}IMPL-', 'color': NEEDS_COLORS['impl'], 'style': 'node'},
+    ]
+
+
 # -- Base sphinx-needs configuration -----------------------------------------
 
 needs_build_needflow = True
