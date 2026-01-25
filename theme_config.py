@@ -7,7 +7,7 @@ project conf.py files to ensure consistent branding and styling.
 Usage in conf.py:
     import sys
     import os
-    sys.path.insert(0, os.path.abspath('cleanroom-design-system'))
+    sys.path.insert(0, os.path.abspath('cleanroom-theme'))
     from theme_config import *
 """
 
@@ -40,11 +40,11 @@ extensions = [
 
 # -- Static files and CSS ----------------------------------------------------
 
-# Path relative to conf.py location (cleanroom-design-system is a subdirectory)
-html_static_path = ['cleanroom-design-system/sphinx/_static']
+# Path relative to conf.py location (cleanroom-theme is a subdirectory)
+html_static_path = ['cleanroom-theme/sphinx/_static']
 
 # Templates path for custom layout (includes top navigation bar)
-templates_path = ['cleanroom-design-system/sphinx/_templates']
+templates_path = ['cleanroom-theme/sphinx/_templates']
 
 # Custom CSS
 html_css_files = [
@@ -54,7 +54,7 @@ html_css_files = [
 # -- Common settings ---------------------------------------------------------
 
 language = 'en'
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'cleanroom-design-system']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'cleanroom-theme']
 
 source_suffix = {
     '.rst': 'restructuredtext',

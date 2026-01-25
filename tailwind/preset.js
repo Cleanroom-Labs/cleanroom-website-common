@@ -1,18 +1,18 @@
 /**
- * Cleanroom Design System - Tailwind Preset
+ * Cleanroom Theme - Tailwind Preset
  *
  * This preset provides design tokens, typography, and animations.
  * Import and use in your tailwind.config.js:
  *
- *   const designPreset = require('./cleanroom-design-system/tailwind/preset');
+ *   const themePreset = require('./cleanroom-theme/tailwind/preset');
  *   module.exports = {
- *     presets: [designPreset],
+ *     presets: [themePreset],
  *     content: [...],
  *     plugins: [require('@tailwindcss/typography')],
  *   };
  *
  * Also import the base CSS in your globals.css:
- *   @import '../cleanroom-design-system/css/base.css';
+ *   @import '../cleanroom-theme/css/base.css';
  */
 
 const tokens = require('../tokens/colors');

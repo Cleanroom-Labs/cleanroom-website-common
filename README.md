@@ -1,6 +1,6 @@
-# Cleanroom Design System
+# Cleanroom Theme
 
-Unified design system for Cleanroom Labs - the single source of truth for design tokens used across the main website and Sphinx documentation.
+Unified theme for Cleanroom Labs - the single source of truth for design tokens used across the main website and Sphinx documentation.
 
 ## Overview
 
@@ -12,7 +12,7 @@ This repository provides:
 ## Repository Structure
 
 ```
-cleanroom-design-system/
+cleanroom-theme/
 ├── tokens/
 │   └── colors.js           # Single source of truth for all design tokens
 ├── tailwind/
@@ -36,10 +36,10 @@ cleanroom-design-system/
 Add as a submodule and use the preset in your `tailwind.config.js`:
 
 ```javascript
-const designPreset = require('./cleanroom-design-system/tailwind/preset');
+const themePreset = require('./cleanroom-theme/tailwind/preset');
 
 module.exports = {
-  presets: [designPreset],
+  presets: [themePreset],
   content: ['./pages/**/*.{js,jsx}', './components/**/*.{js,jsx}'],
   // ... rest of your config
 };
@@ -93,13 +93,13 @@ All colors are defined in `tokens/colors.js`:
 
 ## Updating
 
-To update the design system in a project:
+To update the theme in a project:
 
 ```bash
 cd your-project
-git submodule update --remote sphinx-theme  # or design-system
-git add sphinx-theme
-git commit -m "Update design system"
+git submodule update --remote cleanroom-theme
+git add cleanroom-theme
+git commit -m "Update theme"
 ```
 
 ## Sphinx Configuration
