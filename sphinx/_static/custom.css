@@ -549,6 +549,10 @@ a.download:hover {
     color: #ffffff !important;
 }
 
+.site-nav-bar > div > a:first-child:hover {
+    color: var(--color-emerald-light) !important;
+}
+
 .site-nav-bar a:hover {
     color: var(--color-emerald-light) !important;
     text-decoration: none !important;
