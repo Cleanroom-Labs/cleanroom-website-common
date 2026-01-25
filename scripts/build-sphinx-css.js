@@ -377,6 +377,23 @@ table.docutils tr:hover {
     color: #ffffff;
 }
 
+/* Keep sidebar dark for expanded/current toctree sections */
+.wy-menu-vertical li.current {
+    background: var(--color-slate-800) !important;
+}
+
+.wy-menu-vertical li.toctree-l1.current > ul,
+.wy-menu-vertical li.toctree-l2.current > ul,
+.wy-menu-vertical li.toctree-l3.current > ul {
+    background: var(--color-slate-800) !important;
+}
+
+.wy-menu-vertical li.toctree-l2,
+.wy-menu-vertical li.toctree-l3,
+.wy-menu-vertical li.toctree-l4 {
+    background: var(--color-slate-800) !important;
+}
+
 .wy-menu-vertical .caption {
     color: var(--color-emerald);
 }
@@ -532,11 +549,14 @@ a.download:hover {
     border-bottom: none !important;
 }
 
-.site-nav-bar > div > a:first-child {
+.site-nav-bar .nav-brand,
+.site-nav-bar .nav-brand:link,
+.site-nav-bar .nav-brand:visited,
+.site-nav-bar .nav-brand:active {
     color: #ffffff !important;
 }
 
-.site-nav-bar > div > a:first-child:hover {
+.site-nav-bar .nav-brand:hover {
     color: var(--color-emerald-light) !important;
 }
 
@@ -632,18 +652,26 @@ footer a {
     color: var(--color-emerald);
 }
 
-/* Nested toctree items */
+/* Nested toctree items - keep dark backgrounds */
 .wy-menu-vertical li.toctree-l2 a,
 .wy-menu-vertical li.toctree-l2 a:visited,
 .wy-menu-vertical li.toctree-l3 a,
-.wy-menu-vertical li.toctree-l3 a:visited {
+.wy-menu-vertical li.toctree-l3 a:visited,
+.wy-menu-vertical li.toctree-l4 a,
+.wy-menu-vertical li.toctree-l4 a:visited {
     color: var(--color-text-secondary);
+    background: transparent !important;
 }
 
 .wy-menu-vertical li.toctree-l2.current > a,
 .wy-menu-vertical li.toctree-l3.current > a {
-    background-color: rgba(16, 185, 129, 0.2);
+    background-color: rgba(16, 185, 129, 0.2) !important;
     color: var(--color-emerald-light);
+}
+
+/* Ensure current item children stay dark */
+.wy-menu-vertical li.current ul {
+    background: var(--color-slate-800) !important;
 }
 
 /* Definition lists */
