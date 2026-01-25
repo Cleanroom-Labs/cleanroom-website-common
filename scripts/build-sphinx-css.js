@@ -532,7 +532,7 @@ a.download:hover {
     border-bottom: none !important;
 }
 
-.site-nav-bar a:first-child {
+.site-nav-bar > div > a:first-child {
     color: #ffffff !important;
 }
 
