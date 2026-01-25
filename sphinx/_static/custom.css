@@ -695,6 +695,31 @@ footer a {
 }
 
 /* ============================================================================
+   Sidebar Project Ordering Fix
+   Forces consistent ordering: AirGap Transfer, AirGap Deploy, Cleanroom Whisper
+   regardless of which page is currently being viewed.
+   ============================================================================ */
+
+/* Make the Projects section ul a flex container */
+.wy-menu-vertical .caption + ul {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Assign explicit order to each project */
+.wy-menu-vertical li.toctree-l1:has(> a[href*="transfer"]) {
+    order: 1;
+}
+
+.wy-menu-vertical li.toctree-l1:has(> a[href*="deploy"]) {
+    order: 2;
+}
+
+.wy-menu-vertical li.toctree-l1:has(> a[href*="whisper"]) {
+    order: 3;
+}
+
+/* ============================================================================
    Print Styles
    ============================================================================ */
 
