@@ -51,6 +51,9 @@ html_css_files = [
     'custom.css',
 ]
 
+# Favicon (shared across all docs)
+html_favicon = 'favicon.ico'
+
 # -- Common settings ---------------------------------------------------------
 
 language = 'en'
