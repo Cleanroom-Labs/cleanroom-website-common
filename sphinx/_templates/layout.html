@@ -40,17 +40,19 @@
 
 {% block extrabody %}
 <nav class="site-nav-bar bg-slate-800 border-b border-slate-700 text-white fixed top-0 left-0 right-0 z-[300]">
-    <div class="container mx-auto px-4 py-4 flex items-center gap-8">
-        <a href="/" class="hover:opacity-80 transition-opacity">
-            <img src="{{ pathto('_static/favicon.svg', 1) }}" alt="Cleanroom Labs home" class="w-8 h-8" />
-        </a>
-        <a href="/" class="nav-brand font-bold text-lg text-white hover:text-emerald-light no-underline transition-colors">Cleanroom Labs</a>
-        <div class="flex gap-6">
-            <a href="/about" class="text-text-secondary hover:text-emerald-light no-underline transition-colors">About</a>
-            <a href="/donate" class="text-text-secondary hover:text-emerald-light no-underline transition-colors">Donate</a>
-            <a href="/blog" class="text-text-secondary hover:text-emerald-light no-underline transition-colors">Blog</a>
-            <a href="/docs/index.html" class="text-text-secondary hover:text-emerald-light no-underline transition-colors">Docs</a>
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-8">
+            <a href="/" class="hover:opacity-80 transition-opacity">
+                <img src="{{ pathto('_static/favicon.svg', 1) }}" alt="Cleanroom Labs home" class="w-8 h-8" />
+            </a>
+            <a href="/" class="nav-brand font-bold text-lg text-white hover:text-emerald-light no-underline transition-colors">Cleanroom Labs</a>
+            <div class="flex gap-6">
+                <a href="/about" class="text-text-secondary hover:text-emerald-light no-underline transition-colors">About</a>
+                <a href="/blog" class="text-text-secondary hover:text-emerald-light no-underline transition-colors">Blog</a>
+                <a href="/docs/index.html" class="text-text-secondary hover:text-emerald-light no-underline transition-colors">Docs</a>
+            </div>
         </div>
+        <a href="/donate" class="bg-emerald hover:bg-emerald-light text-white px-4 py-2 rounded-md font-medium no-underline transition-colors">Donate</a>
     </div>
 </nav>
 <script>

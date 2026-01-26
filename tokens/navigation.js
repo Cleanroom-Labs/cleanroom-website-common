@@ -16,8 +16,12 @@ module.exports = {
 
   links: [
     { text: 'About', href: '/about' },
-    { text: 'Donate', href: '/donate' },
     { text: 'Blog', href: '/blog' },
     { text: 'Docs', href: '/docs/index.html' },
   ],
+
+  donate: {
+    text: 'Donate',
+    href: '/donate',
+  },
 };
