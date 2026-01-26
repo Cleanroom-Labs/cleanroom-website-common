@@ -565,6 +565,15 @@ a.download:hover {
     text-decoration: none !important;
 }
 
+/* Donate button - keep text white */
+.site-nav-bar a[href="/donate"],
+.site-nav-bar a[href="/donate"]:link,
+.site-nav-bar a[href="/donate"]:visited,
+.site-nav-bar a[href="/donate"]:active,
+.site-nav-bar a[href="/donate"]:hover {
+    color: #ffffff !important;
+}
+
 /* Sidebar search input */
 .wy-side-nav-search input[type="text"] {
     background-color: var(--color-docs-code-bg);
