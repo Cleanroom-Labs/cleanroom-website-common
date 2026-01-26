@@ -619,6 +619,11 @@ a.download:hover {
     text-decoration: none !important;
 }
 
+/* Sidebar header link spacing */
+.wy-side-nav-search > a {
+    margin-top: 0.5rem;
+}
+
 /* Mobile nav adjustments */
 @media screen and (max-width: 768px) {
     .wy-nav-top {
