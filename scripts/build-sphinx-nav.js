@@ -65,6 +65,9 @@ function generateTemplate(nav, tokens) {
 
 {% block extrahead %}
 {{ super() }}
+<link rel="icon" type="image/svg+xml" href="{{ pathto('_static/favicon.svg', 1) }}">
+<link rel="icon" type="image/png" sizes="96x96" href="{{ pathto('_static/favicon-96x96.png', 1) }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ pathto('_static/apple-touch-icon.png', 1) }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -81,6 +84,18 @@ function generateTemplate(nav, tokens) {
 ${navLinks}
     </div>
 </nav>
+<script>
+// Sidebar project ordering: Add data attributes for CSS ordering
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.wy-menu-vertical li.toctree-l1 > a').forEach(function(link) {
+        var text = link.textContent.toLowerCase();
+        var li = link.parentElement;
+        if (text.includes('transfer')) li.dataset.project = 'transfer';
+        else if (text.includes('deploy')) li.dataset.project = 'deploy';
+        else if (text.includes('whisper')) li.dataset.project = 'whisper';
+    });
+});
+</script>
 {{ super() }}
 {% endblock %}
 `;
