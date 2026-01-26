@@ -620,6 +620,63 @@ a.download:hover {
     margin-top: 0.5rem;
 }
 
+/* ============================================================================
+   Sidebar Toggle Button
+   ============================================================================ */
+
+/* Sidebar toggle button */
+.sidebar-toggle {
+    position: fixed;
+    top: 70px;
+    left: 270px;
+    z-index: 250;
+    width: 24px;
+    height: 24px;
+    background: var(--color-slate-700);
+    border: 1px solid var(--color-slate-600);
+    border-radius: 4px;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: left 0.3s ease, background-color 0.2s;
+}
+
+.sidebar-toggle:hover {
+    background: var(--color-slate-600);
+    color: #ffffff;
+}
+
+/* Collapsed state */
+body.sidebar-collapsed .wy-nav-side {
+    transform: translateX(-100%);
+}
+
+body.sidebar-collapsed .wy-nav-content-wrap {
+    margin-left: 0;
+}
+
+body.sidebar-collapsed .sidebar-toggle {
+    left: 10px;
+}
+
+/* Smooth transitions */
+.wy-nav-side {
+    transition: transform 0.3s ease;
+}
+
+.wy-nav-content-wrap {
+    transition: margin-left 0.3s ease;
+}
+
+/* Hide toggle on mobile (RTD handles collapse) */
+@media screen and (max-width: 768px) {
+    .sidebar-toggle {
+        display: none;
+    }
+}
+
 /* Mobile nav adjustments */
 @media screen and (max-width: 768px) {
     .wy-nav-top {

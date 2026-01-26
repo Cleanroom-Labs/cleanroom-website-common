@@ -55,6 +55,11 @@
         <a href="/donate" class="bg-emerald hover:bg-emerald-light text-white px-4 py-2 rounded-md font-semibold no-underline transition-colors">Donate</a>
     </div>
 </nav>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar" title="Toggle sidebar (Alt+S)">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"/>
+    </svg>
+</button>
 <script>
 // Sidebar project ordering: Add data attributes for CSS ordering
 document.addEventListener('DOMContentLoaded', function() {
@@ -66,6 +71,30 @@ document.addEventListener('DOMContentLoaded', function() {
         else if (text.includes('whisper')) li.dataset.project = 'whisper';
     });
 });
+
+// Sidebar toggle functionality
+(function() {
+    var toggle = document.getElementById('sidebar-toggle');
+    var body = document.body;
+
+    // Load saved state
+    if (localStorage.getItem('sidebar-collapsed') === 'true') {
+        body.classList.add('sidebar-collapsed');
+    }
+
+    toggle.addEventListener('click', function() {
+        body.classList.toggle('sidebar-collapsed');
+        localStorage.setItem('sidebar-collapsed', body.classList.contains('sidebar-collapsed'));
+    });
+
+    // Keyboard shortcut: Alt+S
+    document.addEventListener('keydown', function(e) {
+        if (e.altKey && e.key === 's') {
+            e.preventDefault();
+            toggle.click();
+        }
+    });
+})();
 </script>
 {{ super() }}
 {% endblock %}
