@@ -567,7 +567,7 @@ a.download:hover {
 
 /* Sidebar search input */
 .wy-side-nav-search input[type="text"] {
-    background-color: var(--color-code-bg);
+    background-color: var(--color-slate-800);
     border: 1px solid var(--color-slate-700);
     border-radius: 4px;
     box-shadow: none;
@@ -597,7 +597,7 @@ a.download:hover {
 
 .wy-side-nav-search {
     margin-top: 0;
-    padding-top: 1rem;
+    padding-top: 1rem !important;
 }
 
 /* Sidebar header link (Technical Documentation) */
