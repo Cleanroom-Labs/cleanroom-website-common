@@ -580,11 +580,11 @@ a.download:hover {
 
 /* Sidebar search input */
 .wy-side-nav-search input[type="text"] {
-    background-color: #ffffff;
+    background-color: var(--color-code-bg);
     border: 1px solid var(--color-slate-700);
     border-radius: 4px;
     box-shadow: none;
-    color: #1e293b;
+    color: var(--color-text-secondary);
 }
 
 .wy-side-nav-search input[type="text"]::placeholder {
@@ -610,6 +610,13 @@ a.download:hover {
 
 .wy-side-nav-search {
     margin-top: 0;
+    padding-top: 1rem;
+}
+
+/* Sidebar header link (Technical Documentation) */
+.wy-side-nav-search a:hover {
+    background-color: transparent !important;
+    text-decoration: none !important;
 }
 
 /* Mobile nav adjustments */

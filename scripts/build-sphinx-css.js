@@ -597,6 +597,13 @@ a.download:hover {
 
 .wy-side-nav-search {
     margin-top: 0;
+    padding-top: 1rem;
+}
+
+/* Sidebar header link (Technical Documentation) */
+.wy-side-nav-search a:hover {
+    background-color: transparent !important;
+    text-decoration: none !important;
 }
 
 /* Mobile nav adjustments */
