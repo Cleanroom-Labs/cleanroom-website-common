@@ -580,11 +580,11 @@ a.download:hover {
 
 /* Sidebar search input */
 .wy-side-nav-search input[type="text"] {
-    background-color: var(--color-code-bg);
+    background-color: #ffffff;
     border: 1px solid var(--color-slate-700);
     border-radius: 4px;
     box-shadow: none;
-    color: var(--color-text-secondary);
+    color: #1e293b;
 }
 
 .wy-side-nav-search input[type="text"]::placeholder {
