@@ -51,8 +51,8 @@ html_css_files = [
     'custom.css',
 ]
 
-# Favicon (shared across all docs)
-html_favicon = 'favicon.ico'
+# Favicon (shared across all docs - path relative to conf.py)
+html_favicon = 'cleanroom-theme/sphinx/_static/favicon.ico'
 
 # -- Common settings ---------------------------------------------------------
 
