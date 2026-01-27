@@ -350,6 +350,12 @@ table.docutils tr:hover {
     background-color: var(--color-docs-code-bg);
 }
 
+/* Remove paragraph margins inside table cells for tighter rows */
+table.docutils td p,
+table.docutils th p {
+    margin: 0;
+}
+
 /* ============================================================================
    Navigation and Sidebar
    ============================================================================ */
