@@ -290,8 +290,8 @@ code.literal {
 }
 
 .admonition.note {
-    background-color: rgba(16, 185, 129, 0.08);
-    border-left-color: var(--color-emerald);
+    background-color: rgba(100, 116, 139, 0.08);
+    border-left: none;
 }
 
 .admonition.warning {
