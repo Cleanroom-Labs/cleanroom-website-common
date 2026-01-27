@@ -545,6 +545,30 @@ a.download:hover {
     font-weight: 600;
 }
 
+/* Development Status Badges */
+.status-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.7em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.status-active {
+    background-color: var(--color-emerald);
+    color: white;
+}
+
+.status-planned {
+    background-color: transparent;
+    border: 1.5px dashed var(--color-warning);
+    color: var(--color-warning);
+}
+
 /* ============================================================================
    Top Navigation Bar
    ============================================================================ */

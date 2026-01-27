@@ -150,3 +150,15 @@ needs_extra_links = [
 ]
 
 needs_flow_link_types = ['links', 'tests', 'implements', 'satisfies']
+
+# -- RST Substitutions for Status Badges -------------------------------------
+
+rst_prolog = """
+.. |status-active| raw:: html
+
+   <span class="status-badge status-active">Active Development</span>
+
+.. |status-planned| raw:: html
+
+   <span class="status-badge status-planned">Planned</span>
+"""
