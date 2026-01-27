@@ -366,8 +366,8 @@ table.docutils tr:hover {
 /* Remove paragraph margins inside table cells for tighter rows */
 .rst-content table.docutils td p,
 .rst-content table.docutils th p {
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
 }
 
 /* ============================================================================
