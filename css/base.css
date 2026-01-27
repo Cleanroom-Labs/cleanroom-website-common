@@ -33,10 +33,70 @@
   50% { transform: translateY(-20px); }
 }
 
+@keyframes wander {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(15px, -20px); }
+  50% { transform: translate(-10px, -35px); }
+  75% { transform: translate(-20px, -15px); }
+}
+
+@keyframes wander-alt {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-25px, -10px); }
+  40% { transform: translate(-15px, 20px); }
+  60% { transform: translate(20px, 15px); }
+  80% { transform: translate(25px, -15px); }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(30px, -20px); }
+}
+
+@keyframes drift-reverse {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-30px, -15px); }
+}
+
+@keyframes drift-slow {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(20px, -25px); }
+  66% { transform: translate(-15px, -10px); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
 
 .animate-float-delayed {
   animation: float 6s ease-in-out infinite 3s;
+}
+
+.animate-wander {
+  animation: wander 20s ease-in-out infinite;
+}
+
+.animate-wander-alt {
+  animation: wander-alt 25s ease-in-out infinite;
+}
+
+.animate-drift {
+  animation: drift 15s ease-in-out infinite;
+}
+
+.animate-drift-reverse {
+  animation: drift-reverse 18s ease-in-out infinite;
+}
+
+.animate-drift-slow {
+  animation: drift-slow 30s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s ease-in-out infinite;
 }

@@ -106,12 +106,48 @@ module.exports = {
       animation: {
         'float': 'float 6s ease-in-out infinite',
         'float-delayed': 'float 6s ease-in-out infinite 3s',
+        'wander': 'wander 20s ease-in-out infinite',
+        'wander-alt': 'wander-alt 25s ease-in-out infinite',
+        'drift': 'drift 15s ease-in-out infinite',
+        'drift-reverse': 'drift-reverse 18s ease-in-out infinite',
+        'drift-slow': 'drift-slow 30s ease-in-out infinite',
+        'pulse-slow': 'pulse-slow 8s ease-in-out infinite',
       },
 
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-20px)' },
+        },
+        wander: {
+          '0%, 100%': { transform: 'translate(0, 0)' },
+          '25%': { transform: 'translate(15px, -20px)' },
+          '50%': { transform: 'translate(-10px, -35px)' },
+          '75%': { transform: 'translate(-20px, -15px)' },
+        },
+        'wander-alt': {
+          '0%, 100%': { transform: 'translate(0, 0)' },
+          '20%': { transform: 'translate(-25px, -10px)' },
+          '40%': { transform: 'translate(-15px, 20px)' },
+          '60%': { transform: 'translate(20px, 15px)' },
+          '80%': { transform: 'translate(25px, -15px)' },
+        },
+        drift: {
+          '0%, 100%': { transform: 'translate(0, 0)' },
+          '50%': { transform: 'translate(30px, -20px)' },
+        },
+        'drift-reverse': {
+          '0%, 100%': { transform: 'translate(0, 0)' },
+          '50%': { transform: 'translate(-30px, -15px)' },
+        },
+        'drift-slow': {
+          '0%, 100%': { transform: 'translate(0, 0)' },
+          '33%': { transform: 'translate(20px, -25px)' },
+          '66%': { transform: 'translate(-15px, -10px)' },
+        },
+        'pulse-slow': {
+          '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+          '50%': { opacity: '0.6', transform: 'scale(1.05)' },
         },
       },
     },
