@@ -64,7 +64,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--color-docs-text-primary);
 }
 
-h1 {
+.rst-content h1 {
     border-bottom: 3px solid var(--color-emerald);
     padding-bottom: 0.3em;
     margin-top: 1.5em;
@@ -429,7 +429,7 @@ table.docutils tr:hover {
         padding: 0 1em;
     }
 
-    h1 {
+    .rst-content h1 {
         font-size: 1.8em;
     }
 
