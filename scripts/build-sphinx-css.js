@@ -342,7 +342,7 @@ table.docutils th {
 
 table.docutils td {
     border: 1px solid var(--color-docs-border);
-    padding: 10px;
+    padding: 8px 10px;
     color: var(--color-docs-text-secondary);
 }
 
@@ -351,9 +351,10 @@ table.docutils tr:hover {
 }
 
 /* Remove paragraph margins inside table cells for tighter rows */
-table.docutils td p,
-table.docutils th p {
-    margin: 0;
+.rst-content table.docutils td p,
+.rst-content table.docutils th p {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 /* ============================================================================
