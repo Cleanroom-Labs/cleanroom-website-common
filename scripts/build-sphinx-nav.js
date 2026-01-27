@@ -43,17 +43,23 @@ function generateNavLinks(links) {
   const linkElements = links
     .map(
       (link) =>
-        `            <a href="${link.href}" class="text-text-secondary hover:text-emerald-light no-underline transition-colors">${link.text}</a>`
+        `                <a href="${link.href}" class="text-text-secondary hover:text-emerald-light no-underline transition-colors">${link.text}</a>`
     )
     .join('\n');
 
-  return `        <div class="flex gap-6">\n${linkElements}\n        </div>`;
+  return `            <div class="flex gap-6">\n${linkElements}\n            </div>`;
+}
+
+// Generate donate button HTML
+function generateDonateButton(donate) {
+  return `        <a href="${donate.href}" class="bg-emerald hover:bg-emerald-light text-white px-4 py-2 rounded-md font-semibold no-underline transition-colors">${donate.text}</a>`;
 }
 
 // Main template generator
 function generateTemplate(nav, tokens) {
   const tailwindConfig = generateTailwindConfig(tokens.colors);
   const navLinks = generateNavLinks(nav.links);
+  const donateButton = generateDonateButton(nav.donate);
 
   return `{# ============================================================================
    Cleanroom Design System - Sphinx Layout Template
@@ -79,14 +85,22 @@ function generateTemplate(nav, tokens) {
 
 {% block extrabody %}
 <nav class="site-nav-bar bg-slate-800 border-b border-slate-700 text-white fixed top-0 left-0 right-0 z-[300]">
-    <div class="container mx-auto px-4 py-4 flex items-center gap-8">
-        <a href="${nav.brand.href}" class="hover:opacity-80 transition-opacity">
-            <img src="{{ pathto('_static/favicon.svg', 1) }}" alt="Cleanroom Labs home" class="w-8 h-8" />
-        </a>
-        <a href="${nav.brand.href}" class="nav-brand font-bold text-lg text-white hover:text-emerald-light no-underline transition-colors">${nav.brand.text}</a>
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-8">
+            <a href="${nav.brand.href}" class="hover:opacity-80 transition-opacity">
+                <img src="{{ pathto('_static/favicon.svg', 1) }}" alt="Cleanroom Labs home" class="w-8 h-8" />
+            </a>
+            <a href="${nav.brand.href}" class="nav-brand font-bold text-lg text-white hover:text-emerald-light no-underline transition-colors">${nav.brand.text}</a>
 ${navLinks}
+        </div>
+${donateButton}
     </div>
 </nav>
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar" title="Toggle sidebar (Alt+S)">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 12h18M3 6h18M3 18h18"/>
+    </svg>
+</button>
 <script>
 // Sidebar project ordering: Add data attributes for CSS ordering
 document.addEventListener('DOMContentLoaded', function() {
@@ -98,6 +112,30 @@ document.addEventListener('DOMContentLoaded', function() {
         else if (text.includes('whisper')) li.dataset.project = 'whisper';
     });
 });
+
+// Sidebar toggle functionality
+(function() {
+    var toggle = document.getElementById('sidebar-toggle');
+    var body = document.body;
+
+    // Load saved state
+    if (localStorage.getItem('sidebar-collapsed') === 'true') {
+        body.classList.add('sidebar-collapsed');
+    }
+
+    toggle.addEventListener('click', function() {
+        body.classList.toggle('sidebar-collapsed');
+        localStorage.setItem('sidebar-collapsed', body.classList.contains('sidebar-collapsed'));
+    });
+
+    // Keyboard shortcut: Alt+S
+    document.addEventListener('keydown', function(e) {
+        if (e.altKey && e.key === 's') {
+            e.preventDefault();
+            toggle.click();
+        }
+    });
+})();
 </script>
 {{ super() }}
 {% endblock %}

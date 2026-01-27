@@ -6,7 +6,9 @@
   "scripts": {
     "build": "npm run build:sphinx-css && npm run build:sphinx-nav",
     "build:sphinx-css": "node scripts/build-sphinx-css.js",
-    "build:sphinx-nav": "node scripts/build-sphinx-nav.js"
+    "build:sphinx-nav": "node scripts/build-sphinx-nav.js",
+    "check-staleness": "node scripts/check-staleness.js",
+    "fix-staleness": "node scripts/check-staleness.js --fix"
   },
   "repository": {
     "type": "git",
