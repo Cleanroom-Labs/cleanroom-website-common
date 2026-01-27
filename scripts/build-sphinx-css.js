@@ -350,11 +350,12 @@ table.docutils tr:hover {
     background-color: var(--color-docs-code-bg);
 }
 
-/* Remove paragraph margins inside table cells for tighter rows */
+/* Compact table rows by resetting paragraph styles */
 .rst-content table.docutils td p,
 .rst-content table.docutils th p {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
+    line-height: 1.2 !important;
 }
 
 /* ============================================================================
