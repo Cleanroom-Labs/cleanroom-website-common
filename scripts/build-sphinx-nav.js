@@ -47,7 +47,7 @@ function generateNavLinks(links) {
     )
     .join('\n');
 
-  return `            <div class="flex gap-6">\n${linkElements}\n            </div>`;
+  return `            <div class="flex gap-4 md:gap-6">\n${linkElements}\n            </div>`;
 }
 
 // Generate donate button HTML
@@ -86,11 +86,11 @@ function generateTemplate(nav, tokens) {
 {% block extrabody %}
 <nav class="site-nav-bar bg-slate-800 border-b border-slate-700 text-white fixed top-0 left-0 right-0 z-[300]">
     <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div class="flex items-center gap-8">
+        <div class="flex items-center gap-6 md:gap-8">
             <a href="${nav.brand.href}" class="hover:opacity-80 transition-opacity">
                 <img src="{{ pathto('_static/favicon.svg', 1) }}" alt="Cleanroom Labs home" class="w-8 h-8" />
             </a>
-            <a href="${nav.brand.href}" class="nav-brand font-bold text-lg text-white hover:text-emerald-light no-underline transition-colors">${nav.brand.text}</a>
+            <a href="${nav.brand.href}" class="nav-brand hidden md:block font-bold text-lg text-white hover:text-emerald-light no-underline transition-colors">${nav.brand.text}</a>
 ${navLinks}
         </div>
 ${donateButton}
