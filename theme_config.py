@@ -54,6 +54,12 @@ html_css_files = [
 # Favicon (shared across all docs - path relative to conf.py)
 html_favicon = 'cleanroom-theme/sphinx/_static/favicon.ico'
 
+# -- MyST-Parser configuration -----------------------------------------------
+
+myst_enable_extensions = [
+    "tasklist",  # Enable checkbox rendering for - [ ] and - [x]
+]
+
 # -- Common settings ---------------------------------------------------------
 
 language = 'en'
