@@ -179,7 +179,7 @@ def setup_project_icon(project_name, html_context_dict):
     }
     icon_id = project_map.get(project_name, 'meta')
 
-    sidebar_svg = icons_mod.get_project_icon_svg(icon_id, color='#ffffff', size=18)
+    sidebar_svg = icons_mod.get_project_icon_svg(icon_id, color='#10b981', size=18)
     breadcrumb_svg = icons_mod.get_project_icon_svg(icon_id, color='#059669', size=16)
 
     # Flatten to single line for safe Jinja/JS embedding

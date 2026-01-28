@@ -460,6 +460,26 @@ table.docutils tr:hover {
     width: 1em;
     height: 1em;
     vertical-align: -0.125em;
+    margin-right: 0.35em;
+}
+
+.wy-breadcrumbs .icon-home .project-home-icon {
+    margin-right: 0.15em;
+    background-color: #cbd5e1;
+    border-radius: 3px;
+    padding: 2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wy-side-nav-search .icon-home .project-home-icon {
+    margin-right: 0;
+    margin-left: -0.5em;
+}
+
+.wy-side-nav-search .icon-home {
+    word-spacing: 0.15em;
 }
 
 /* Breadcrumbs */
