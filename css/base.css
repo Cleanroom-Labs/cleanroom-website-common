@@ -100,3 +100,12 @@
 .animate-pulse-slow {
   animation: pulse-slow 8s ease-in-out infinite;
 }
+
+/* ==========================================================================
+   Overscroll Behavior
+   ========================================================================== */
+
+/* Prevent overscroll bounce on mobile */
+html, body {
+  overscroll-behavior: none;
+}

@@ -56,6 +56,7 @@
 
 body {
     font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+    overscroll-behavior: none;
 }
 
 /* Content area - light theme for readability */

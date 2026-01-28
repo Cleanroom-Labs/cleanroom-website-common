@@ -43,6 +43,7 @@ ${generateCSSVariables(colors)}
 
 body {
     font-family: ${tokens.fonts.sans.join(', ')};
+    overscroll-behavior: none;
 }
 
 /* Content area - light theme for readability */
