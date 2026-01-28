@@ -143,18 +143,20 @@ h3 {
    Task List / Checkbox Styling (myst-parser tasklist extension)
    ============================================================================ */
 
-/* Remove bullet points from task list items */
-ul.contains-task-list {
-    list-style: none;
-    padding-left: 0;
+/* Remove bullet points from task list items - high specificity to override RTD theme */
+.rst-content ul.contains-task-list,
+.rst-content ul.contains-task-list.simple {
+    list-style: none !important;
+    padding-left: 0 !important;
 }
 
-ul.contains-task-list ul.contains-task-list {
-    padding-left: 1.5em;
+.rst-content ul.contains-task-list ul.contains-task-list {
+    padding-left: 1.5em !important;
 }
 
-li.task-list-item {
-    list-style: none;
+.rst-content li.task-list-item {
+    list-style: none !important;
+    margin-left: 0 !important;
 }
 
 /* Style the checkbox */
