@@ -46,6 +46,19 @@ body {
     overscroll-behavior: none;
 }
 
+/* Prevent overscroll/elastic scroll on mobile */
+html {
+    overscroll-behavior: none;
+}
+
+.wy-side-scroll {
+    overscroll-behavior: none;
+}
+
+.wy-nav-content-wrap {
+    overscroll-behavior: none;
+}
+
 /* Content area - light theme for readability */
 .wy-nav-content {
     background: var(--color-docs-content-bg) !important;
