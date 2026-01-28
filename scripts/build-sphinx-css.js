@@ -98,7 +98,7 @@ h3,
 .rst-content h3 {
     color: var(--color-docs-text-primary);
     margin-top: 1.5em;
-    font-size: 1.6em !important;
+    font-size: 1.5em !important;
     padding-bottom: 0.3em;
     border-bottom: 1px solid var(--color-docs-border);
 }
