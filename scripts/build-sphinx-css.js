@@ -94,10 +94,11 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--color-docs-text-primary);
 }
 
-h3 {
+h3,
+.rst-content h3 {
     color: var(--color-docs-text-primary);
     margin-top: 1.5em;
-    font-size: 1.6em;
+    font-size: 1.6em !important;
     padding-bottom: 0.3em;
     border-bottom: 1px solid var(--color-docs-border);
 }
