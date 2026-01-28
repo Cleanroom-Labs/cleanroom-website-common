@@ -449,6 +449,19 @@ table.docutils tr:hover {
     color: var(--color-emerald);
 }
 
+/* Hide FontAwesome home icon — replaced by per-project SVG */
+.wy-side-nav-search .icon-home::before,
+.wy-breadcrumbs .icon-home::before {
+    display: none;
+}
+
+.icon-home .project-home-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+}
+
 /* Breadcrumbs */
 .wy-breadcrumbs {
     margin-bottom: 1.5em;

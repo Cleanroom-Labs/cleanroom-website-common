@@ -102,6 +102,26 @@ ${donateButton}
     </svg>
 </button>
 <script>
+// Replace home icons with per-project SVGs
+(function() {
+    var sidebarSvg = '{{ project_home_icon_sidebar|default("")|e }}';
+    var breadcrumbSvg = '{{ project_home_icon_breadcrumb|default("")|e }}';
+    function injectIcon(selector, svg) {
+        if (!svg) return;
+        var tmp = document.createElement('div');
+        tmp.innerHTML = svg;
+        var decoded = tmp.innerHTML;
+        document.querySelectorAll(selector + ' .icon-home').forEach(function(el) {
+            var span = document.createElement('span');
+            span.className = 'project-home-icon';
+            span.innerHTML = decoded;
+            el.insertBefore(span, el.firstChild);
+        });
+    }
+    injectIcon('.wy-side-nav-search', sidebarSvg);
+    injectIcon('.wy-breadcrumbs', breadcrumbSvg);
+})();
+
 // Sidebar project ordering: Add data attributes for CSS ordering
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.wy-menu-vertical li.toctree-l1 > a').forEach(function(link) {

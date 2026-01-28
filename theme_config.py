@@ -159,6 +159,34 @@ needs_flow_link_types = ['links', 'tests', 'implements', 'satisfies']
 
 # -- RST Substitutions for Status Badges -------------------------------------
 
+
+# -- Per-project home icon setup ---------------------------------------------
+
+def setup_project_icon(project_name, html_context_dict):
+    """Set up per-project home icon SVGs in html_context for Jinja templates.
+
+    Call from each project's conf.py after defining html_context:
+        setup_project_icon(project, html_context)
+    """
+    import importlib
+    icons_mod = importlib.import_module('icons.index')
+
+    project_map = {
+        'Technical Documentation': 'meta',
+        'AirGap Transfer': 'airgap-transfer',
+        'AirGap Deploy': 'airgap-deploy',
+        'Cleanroom Whisper': 'cleanroom-whisper',
+    }
+    icon_id = project_map.get(project_name, 'meta')
+
+    sidebar_svg = icons_mod.get_project_icon_svg(icon_id, color='#ffffff', size=18)
+    breadcrumb_svg = icons_mod.get_project_icon_svg(icon_id, color='#059669', size=16)
+
+    # Flatten to single line for safe Jinja/JS embedding
+    html_context_dict['project_home_icon_sidebar'] = sidebar_svg.replace('\n', ' ').strip()
+    html_context_dict['project_home_icon_breadcrumb'] = breadcrumb_svg.replace('\n', ' ').strip()
+
+
 rst_prolog = """
 .. |status-active| raw:: html
 
