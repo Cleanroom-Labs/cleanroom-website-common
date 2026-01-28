@@ -17,8 +17,7 @@ export const iconPaths = {
     viewBox: "0 0 48 48",
     elements: [
       { type: 'circle', props: { cx: 24, cy: 24, r: 20, strokeWidth: 2.5, strokeDasharray: "4 3", opacity: 0.4 }},
-      { type: 'path', props: { d: "M10 18L24 10L38 18", strokeWidth: 2.5, strokeLinejoin: "round", opacity: 0.7 }},
-      { type: 'path', props: { d: "M10 18V32L24 40V26", strokeWidth: 2.5, strokeLinejoin: "round", opacity: 0.7 }},
+      { type: 'path', props: { d: "M38 18L24 10L10 18V32L24 40V26", strokeWidth: 2.5, strokeLinejoin: "round" }},
       { type: 'path', props: { d: "M24 26L38 18V32L24 40", strokeWidth: 2.5, strokeLinejoin: "round" }},
       { type: 'path', props: { d: "M10 18L24 26L38 18", strokeWidth: 2.5, strokeLinejoin: "round" }},
     ]
