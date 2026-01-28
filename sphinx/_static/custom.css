@@ -140,6 +140,30 @@ h3 {
 }
 
 /* ============================================================================
+   Task List / Checkbox Styling (myst-parser tasklist extension)
+   ============================================================================ */
+
+/* Remove bullet points from task list items */
+ul.contains-task-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul.contains-task-list ul.contains-task-list {
+    padding-left: 1.5em;
+}
+
+li.task-list-item {
+    list-style: none;
+}
+
+/* Style the checkbox */
+.task-list-item-checkbox {
+    margin-right: 0.5em;
+    vertical-align: middle;
+}
+
+/* ============================================================================
    sphinx-needs Directive Styling
    ============================================================================ */
 
