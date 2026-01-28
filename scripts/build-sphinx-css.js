@@ -726,17 +726,17 @@ body.sidebar-collapsed .sidebar-toggle {
 /* Mobile nav adjustments */
 @media screen and (max-width: 768px) {
     .wy-nav-top {
-        top: 48px;
+        top: 56px;
         background-color: var(--color-slate-800);
     }
 
     .wy-nav-side {
-        top: 48px;
-        height: calc(100% - 48px);
+        top: 56px;
+        height: calc(100% - 56px);
     }
 
     .wy-nav-content-wrap {
-        margin-top: 48px;
+        margin-top: 56px;
     }
 }
 
