@@ -587,6 +587,16 @@ a.download:hover {
    Top Navigation Bar
    ============================================================================ */
 
+/* Site navigation bar - explicit styles for consistent height */
+.site-nav-bar {
+    height: 56px;
+    box-sizing: border-box;
+}
+
+.site-nav-bar > div {
+    height: 100%;
+}
+
 .site-nav-bar a,
 .site-nav-bar a:link,
 .site-nav-bar a:visited,
