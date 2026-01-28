@@ -736,7 +736,7 @@ body.sidebar-collapsed .sidebar-toggle {
 /* Mobile nav adjustments */
 @media screen and (max-width: 768px) {
     .wy-nav-top {
-        top: 56px;
+        margin-top: 56px;  /* Use margin-top since RTD's .wy-nav-top has position: relative */
         background-color: var(--color-slate-800);
     }
 
