@@ -15,11 +15,11 @@ The cleanroom-theme is the shared design system for all Cleanroom Labs projects.
 |------|---------|
 | `tokens/colors.js` | Single source of truth for design tokens |
 | `theme_config.py` | Sphinx theme configuration (imported by docs) |
-| `css/sphinx-custom.css` | Generated CSS for Sphinx docs |
-| `sphinx/nav_links.html` | Generated navigation links |
+| `sphinx/_static/custom.css` | Generated CSS for Sphinx docs |
+| `sphinx/_templates/layout.html` | Generated Sphinx layout template (top nav, sidebar toggle, icons) |
 | `scripts/check-staleness.js` | Validates generated files are up-to-date |
 | `scripts/build-sphinx-css.js` | Generates CSS from tokens |
-| `scripts/build-sphinx-nav.js` | Generates nav links from tokens |
+| `scripts/build-sphinx-nav.js` | Generates Sphinx layout template from tokens |
 
 ## Build Commands
 
@@ -61,9 +61,12 @@ cleanroom-theme/
 ├── tokens/              # Source of truth for design system
 │   └── colors.js        # Color palette, semantic colors
 ├── css/                 # Generated CSS files
-│   └── sphinx-custom.css
+│   └── base.css
 ├── sphinx/              # Generated Sphinx assets
-│   └── nav_links.html
+│   ├── _static/
+│   │   └── custom.css
+│   └── _templates/
+│       └── layout.html
 ├── tailwind/            # Tailwind CSS configuration
 ├── icons/               # Icon assets
 ├── scripts/             # Build and validation scripts

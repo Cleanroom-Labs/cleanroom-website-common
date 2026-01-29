@@ -23,7 +23,8 @@ cleanroom-theme/
 │   └── _templates/
 │       └── layout.html     # Sphinx layout with navigation bar
 ├── scripts/
-│   └── build-sphinx-css.js # Script to generate CSS from tokens
+│   ├── build-sphinx-css.js # Script to generate CSS from tokens
+│   └── build-sphinx-nav.js # Script to generate Sphinx layout template from tokens
 ├── theme_config.py         # Sphinx configuration (extensions, theme settings)
 ├── package.json            # npm scripts
 └── requirements.txt        # Python dependencies for Sphinx
@@ -50,7 +51,7 @@ module.exports = {
 Add as a submodule to your docs `source/` directory:
 
 ```bash
-git submodule add <repo-url> source/sphinx-theme
+git submodule add <repo-url> source/cleanroom-theme
 ```
 
 In your `conf.py`:
@@ -59,7 +60,7 @@ In your `conf.py`:
 import sys
 import os
 
-sys.path.insert(0, os.path.abspath('sphinx-theme'))
+sys.path.insert(0, os.path.abspath('cleanroom-theme'))
 from theme_config import *
 
 project = 'Your Project'
