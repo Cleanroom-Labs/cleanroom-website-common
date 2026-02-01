@@ -11,6 +11,14 @@ Usage in conf.py:
     from theme_config import *
 """
 
+import os
+
+# -- Draft mode --------------------------------------------------------------
+# Set DRAFT=1 environment variable to show a diagonal watermark on all pages.
+# Unset or set to 0 for release builds.
+
+_draft_mode = os.environ.get('DRAFT', '0') not in ('0', '')
+
 # -- Theme configuration -----------------------------------------------------
 
 html_theme = 'sphinx_rtd_theme'
@@ -185,6 +193,9 @@ def setup_project_icon(project_name, html_context_dict):
     # Flatten to single line for safe Jinja/JS embedding
     html_context_dict['project_home_icon_sidebar'] = sidebar_svg.replace('\n', ' ').strip()
     html_context_dict['project_home_icon_breadcrumb'] = breadcrumb_svg.replace('\n', ' ').strip()
+
+    # Inject draft mode flag (set DRAFT=1 env var to enable watermark)
+    html_context_dict['draft'] = _draft_mode
 
 
 rst_prolog = """

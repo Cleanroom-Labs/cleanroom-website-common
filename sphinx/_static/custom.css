@@ -918,10 +918,33 @@ footer a {
 }
 
 /* ============================================================================
+   Draft Watermark
+   ============================================================================ */
+
+.draft-watermark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    font-size: 8rem;
+    font-weight: 700;
+    color: rgba(239, 68, 68, 0.12);
+    pointer-events: none;
+    z-index: 9999;
+    user-select: none;
+    letter-spacing: 0.2em;
+    white-space: nowrap;
+}
+
+/* ============================================================================
    Print Styles
    ============================================================================ */
 
 @media print {
+    .draft-watermark {
+        display: none;
+    }
+
     .wy-nav-side,
     .wy-nav-content-wrap,
     .rst-versions {

@@ -154,6 +154,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 })();
 </script>
+{% if draft %}
+<div class="draft-watermark">DRAFT</div>
+{% endif %}
 {{ super() }}
 {% endblock %}
 `;
