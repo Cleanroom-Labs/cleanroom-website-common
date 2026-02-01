@@ -59,7 +59,7 @@ function generateDonateButton(donate) {
 function generateTemplate(nav, tokens) {
   const tailwindConfig = generateTailwindConfig(tokens.colors);
   const navLinks = generateNavLinks(nav.links);
-  const donateButton = generateDonateButton(nav.donate);
+  const donateButton = nav.donate ? generateDonateButton(nav.donate) : '';
 
   return `{# ============================================================================
    Cleanroom Design System - Sphinx Layout Template

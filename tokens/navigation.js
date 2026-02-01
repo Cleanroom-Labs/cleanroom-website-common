@@ -20,8 +20,9 @@ module.exports = {
     { text: 'Docs', href: '/docs/index.html' },
   ],
 
-  donate: {
-    text: 'Donate',
-    href: '/donate',
-  },
+  // Donate button temporarily hidden — uncomment to re-enable
+  // donate: {
+  //   text: 'Donate',
+  //   href: '/donate',
+  // },
 };
