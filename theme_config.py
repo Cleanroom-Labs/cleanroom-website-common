@@ -11,6 +11,45 @@ Usage in conf.py:
     from theme_config import *
 """
 
+import os
+
+
+def get_docs_version():
+    """Read documentation version from DOCS_VERSION env var.
+
+    CI sets this from the git tag (e.g., '1.0.0', '1.0.0-rc.1').
+    Defaults to 'dev' for local builds and main-branch CI.
+    """
+    return os.environ.get('DOCS_VERSION', 'dev')
+
+
+def get_version_stage(version=None):
+    """Determine the release stage from a version string.
+
+    Returns one of: 'dev', 'beta', 'rc', 'stable'.
+    """
+    if version is None:
+        version = get_docs_version()
+    if version == 'dev':
+        return 'dev'
+    if '-beta.' in version:
+        return 'beta'
+    if '-rc.' in version:
+        return 'rc'
+    return 'stable'
+
+
+def setup_version_context(html_context_dict):
+    """Add version and stage info to html_context for Jinja templates.
+
+    Call from each project's conf.py after defining html_context:
+        setup_version_context(html_context)
+    """
+    ver = get_docs_version()
+    stage = get_version_stage(ver)
+    html_context_dict['docs_version'] = ver
+    html_context_dict['docs_version_stage'] = stage
+
 # -- Theme configuration -----------------------------------------------------
 
 html_theme = 'sphinx_rtd_theme'

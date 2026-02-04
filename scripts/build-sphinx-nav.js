@@ -81,9 +81,12 @@ function generateTemplate(nav, tokens) {
 <script>
     ${tailwindConfig}
 </script>
+<script defer src="{{ pathto('_static/version-switcher.js', 1) }}"></script>
 {% endblock %}
 
 {% block extrabody %}
+{%- set stage = docs_version_stage|default("stable") -%}
+{%- set ver = docs_version|default("dev") -%}
 <nav class="site-nav-bar bg-slate-800 border-b border-slate-700 text-white fixed top-0 left-0 right-0 z-[300]">
     <div class="container mx-auto px-4 py-4 flex items-center justify-between">
         <div class="flex items-center gap-6 md:gap-8">
@@ -93,15 +96,36 @@ function generateTemplate(nav, tokens) {
             <a href="${nav.brand.href}" class="nav-brand hidden md:block font-bold text-lg text-white hover:text-emerald-light no-underline transition-colors">${nav.brand.text}</a>
 ${navLinks}
         </div>
-${donateButton}
+${donateButton ? '        <div class="flex items-center gap-4">\\n            ' + donateButton.trim() + '\\n        </div>' : ''}
     </div>
 </nav>
+{%- if stage != "stable" -%}
+<div class="version-sub-bar">
+    <select id="version-select" data-current-version="{{ docs_version|default('dev') }}" class="version-switcher">
+        <option value="">{{ docs_version|default('dev') }}</option>
+    </select>
+    <span class="version-sub-bar__message version-sub-bar__message--{{ stage }}">
+        {%- if stage == "dev" -%}
+        Development documentation &mdash; may change at any time
+        {%- elif stage == "beta" -%}
+        Pre-release documentation for version {{ ver }}
+        {%- elif stage == "rc" -%}
+        Release candidate ({{ ver }}) &mdash; report issues before final release
+        {%- endif -%}
+    </span>
+</div>
+{%- endif -%}
 <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar" title="Toggle sidebar (Alt+S)">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M3 12h18M3 6h18M3 18h18"/>
     </svg>
 </button>
 <script>
+// Add body class when version sub-bar is present
+if (document.querySelector('.version-sub-bar')) {
+    document.body.classList.add('has-version-sub-bar');
+}
+
 // Replace home icons with per-project SVGs
 document.addEventListener('DOMContentLoaded', function() {
     var sidebarSvg = '{{ project_home_icon_sidebar|default("")|safe }}';
