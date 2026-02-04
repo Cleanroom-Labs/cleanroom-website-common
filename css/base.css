@@ -1,8 +1,8 @@
 /**
- * Cleanroom Theme - Base CSS
+ * Cleanroom Website Common - Base CSS
  *
  * Import this file in your main CSS before Tailwind directives:
- *   @import '../cleanroom-theme/css/base.css';
+ *   @import '../common/css/base.css';
  *   @tailwind base;
  *   @tailwind components;
  *   @tailwind utilities;

@@ -7,7 +7,7 @@ project conf.py files to ensure consistent branding and styling.
 Usage in conf.py:
     import sys
     import os
-    sys.path.insert(0, os.path.abspath('cleanroom-theme'))
+    sys.path.insert(0, os.path.abspath('../common'))
     from theme_config import *
 """
 
@@ -40,11 +40,11 @@ extensions = [
 
 # -- Static files and CSS ----------------------------------------------------
 
-# Path relative to conf.py location (cleanroom-theme is a subdirectory)
-html_static_path = ['cleanroom-theme/sphinx/_static']
+# Path relative to conf.py location (common is one level up from source/)
+html_static_path = ['../common/sphinx/_static']
 
 # Templates path for custom layout (includes top navigation bar)
-templates_path = ['cleanroom-theme/sphinx/_templates']
+templates_path = ['../common/sphinx/_templates']
 
 # Custom CSS
 html_css_files = [
@@ -52,7 +52,7 @@ html_css_files = [
 ]
 
 # Favicon (shared across all docs - path relative to conf.py)
-html_favicon = 'cleanroom-theme/sphinx/_static/favicon.ico'
+html_favicon = '../common/sphinx/_static/favicon.ico'
 
 # -- MyST-Parser configuration -----------------------------------------------
 
@@ -63,7 +63,7 @@ myst_enable_extensions = [
 # -- Common settings ---------------------------------------------------------
 
 language = 'en'
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'cleanroom-theme']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'common']
 
 source_suffix = {
     '.rst': 'restructuredtext',

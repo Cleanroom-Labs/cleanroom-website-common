@@ -1,10 +1,10 @@
 /**
- * Cleanroom Theme - Tailwind Preset
+ * Cleanroom Website Common - Tailwind Preset
  *
  * This preset provides design tokens, typography, and animations.
  * Import and use in your tailwind.config.js:
  *
- *   const themePreset = require('./cleanroom-theme/tailwind/preset');
+ *   const themePreset = require('./common/tailwind/preset');
  *   module.exports = {
  *     presets: [themePreset],
  *     content: [...],
@@ -12,7 +12,7 @@
  *   };
  *
  * Also import the base CSS in your globals.css:
- *   @import '../cleanroom-theme/css/base.css';
+ *   @import '../common/css/base.css';
  */
 
 const tokens = require('../tokens/colors');
