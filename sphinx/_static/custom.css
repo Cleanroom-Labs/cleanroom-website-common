@@ -664,7 +664,7 @@ a.download:hover {
 
 .version-sub-bar {
     position: fixed;
-    top: 56px;
+    top: 64px;
     left: 0;
     right: 0;
     z-index: 299;
@@ -749,77 +749,182 @@ a.download:hover {
 
 /* Layout shift when sub-bar is present */
 body.has-version-sub-bar .wy-nav-side {
-    top: 84px;
-    height: calc(100% - 84px);
+    top: 92px;
+    height: calc(100% - 92px);
 }
 
 body.has-version-sub-bar .wy-nav-content-wrap {
-    margin-top: 84px;
+    margin-top: 92px;
 }
 
 body.has-version-sub-bar .sidebar-toggle {
-    top: 98px;
+    top: 106px;
 }
 
 @media screen and (max-width: 768px) {
     body.has-version-sub-bar .wy-nav-top {
-        margin-top: 84px;
+        margin-top: 92px;
     }
 
     body.has-version-sub-bar .wy-nav-side {
-        top: 84px;
-        height: calc(100% - 84px);
+        top: 92px;
+        height: calc(100% - 92px);
     }
 
     body.has-version-sub-bar .wy-nav-content-wrap {
-        margin-top: 84px;
+        margin-top: 92px;
     }
 }
 
 /* ============================================================================
    Top Navigation Bar
+   All layout handled via explicit CSS — no Tailwind CDN dependency.
    ============================================================================ */
 
-/* Site navigation bar - explicit styles for consistent height */
 .site-nav-bar {
-    height: 56px;
-    box-sizing: border-box;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 300 !important;
+    height: 64px !important;
+    box-sizing: border-box !important;
+    background-color: #1f2937 !important;
+    border-bottom: 1px solid #374151 !important;
+    color: #ffffff !important;
 }
 
-.site-nav-bar > div {
-    height: 100%;
+.site-nav-inner {
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 16px !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
 }
 
-.site-nav-bar a,
-.site-nav-bar a:link,
-.site-nav-bar a:visited,
-.site-nav-bar a:active {
-    color: var(--color-text-secondary) !important;
+@media (min-width: 640px) {
+    .site-nav-inner { max-width: 640px !important; }
+}
+@media (min-width: 768px) {
+    .site-nav-inner { max-width: 768px !important; }
+}
+@media (min-width: 1024px) {
+    .site-nav-inner { max-width: 1024px !important; }
+}
+@media (min-width: 1280px) {
+    .site-nav-inner { max-width: 1280px !important; }
+}
+@media (min-width: 1536px) {
+    .site-nav-inner { max-width: 1536px !important; }
+}
+
+.site-nav-links {
+    display: flex !important;
+    align-items: center !important;
+    gap: 24px !important;
+}
+
+@media (min-width: 768px) {
+    .site-nav-links {
+        gap: 32px !important;
+    }
+}
+
+/* Logo */
+.site-nav-logo {
+    display: block !important;
+    line-height: 0 !important;
+    transition: opacity 0.2s !important;
     border-bottom: none !important;
 }
 
-.site-nav-bar .nav-brand,
+.site-nav-logo:hover {
+    opacity: 0.8 !important;
+}
+
+.site-nav-logo img {
+    width: 32px !important;
+    height: 32px !important;
+}
+
+/* Brand text */
+.site-nav-bar .nav-brand {
+    display: none !important;
+    font-weight: 700 !important;
+    font-size: 1.125rem !important;
+    line-height: 1.75rem !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    transition: color 0.2s !important;
+}
+
+@media (min-width: 768px) {
+    .site-nav-bar .nav-brand {
+        display: block !important;
+    }
+}
+
 .site-nav-bar .nav-brand:link,
-.site-nav-bar .nav-brand:visited,
-.site-nav-bar .nav-brand:active {
+.site-nav-bar .nav-brand:visited {
     color: #ffffff !important;
 }
 
 .site-nav-bar .nav-brand:hover {
-    color: var(--color-emerald-light) !important;
+    color: #10b981 !important;
 }
 
-.site-nav-bar a:hover {
-    color: var(--color-emerald-light) !important;
+/* Navigation menu links */
+.site-nav-menu {
+    display: flex !important;
+    gap: 16px !important;
+}
+
+@media (min-width: 768px) {
+    .site-nav-menu {
+        gap: 24px !important;
+    }
+}
+
+.site-nav-menu a {
+    color: #d1d5db !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    transition: color 0.2s !important;
+}
+
+.site-nav-menu a:link,
+.site-nav-menu a:visited {
+    color: #d1d5db !important;
+}
+
+.site-nav-menu a:hover {
+    color: #10b981 !important;
     text-decoration: none !important;
 }
 
-/* Donate button - keep text white */
-.site-nav-bar a[href="/donate"],
-.site-nav-bar a[href="/donate"]:link,
-.site-nav-bar a[href="/donate"]:visited,
-.site-nav-bar a[href="/donate"]:active,
-.site-nav-bar a[href="/donate"]:hover {
+/* Donate button */
+.site-nav-donate {
+    background-color: #10b981 !important;
+    color: #ffffff !important;
+    padding: 8px 16px !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    transition: background-color 0.2s !important;
+}
+
+.site-nav-donate:link,
+.site-nav-donate:visited,
+.site-nav-donate:active {
+    color: #ffffff !important;
+}
+
+.site-nav-donate:hover {
+    background-color: #34d399 !important;
     color: #ffffff !important;
 }
 
@@ -845,12 +950,12 @@ body.has-version-sub-bar .sidebar-toggle {
 
 /* Adjust RTD theme layout for fixed header */
 .wy-nav-side {
-    top: 56px;
-    height: calc(100% - 56px);
+    top: 64px;
+    height: calc(100% - 64px);
 }
 
 .wy-nav-content-wrap {
-    margin-top: 56px;
+    margin-top: 64px;
 }
 
 .wy-side-nav-search {
@@ -876,7 +981,7 @@ body.has-version-sub-bar .sidebar-toggle {
 /* Sidebar toggle button */
 .sidebar-toggle {
     position: fixed;
-    top: 70px;
+    top: 78px;
     left: 270px;
     z-index: 250;
     width: 24px;
@@ -929,17 +1034,17 @@ body.sidebar-collapsed .sidebar-toggle {
 /* Mobile nav adjustments */
 @media screen and (max-width: 768px) {
     .wy-nav-top {
-        margin-top: 56px;  /* Use margin-top since RTD's .wy-nav-top has position: relative */
+        margin-top: 64px;  /* Use margin-top since RTD's .wy-nav-top has position: relative */
         background-color: var(--color-slate-800);
     }
 
     .wy-nav-side {
-        top: 56px;
-        height: calc(100% - 56px);
+        top: 64px;
+        height: calc(100% - 64px);
     }
 
     .wy-nav-content-wrap {
-        margin-top: 56px;
+        margin-top: 64px;
     }
 }
 

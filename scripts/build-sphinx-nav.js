@@ -38,21 +38,21 @@ function generateTailwindConfig(colors) {
     }`;
 }
 
-// Generate navigation links HTML (wrapped in a flex container)
+// Generate navigation links HTML (wrapped in a semantic container)
 function generateNavLinks(links) {
   const linkElements = links
     .map(
       (link) =>
-        `                <a href="${link.href}" class="text-text-secondary hover:text-emerald-light no-underline transition-colors">${link.text}</a>`
+        `                <a href="${link.href}">${link.text}</a>`
     )
     .join('\n');
 
-  return `            <div class="flex gap-4 md:gap-6">\n${linkElements}\n            </div>`;
+  return `            <div class="site-nav-menu">\n${linkElements}\n            </div>`;
 }
 
 // Generate donate button HTML
 function generateDonateButton(donate) {
-  return `        <a href="${donate.href}" class="bg-emerald hover:bg-emerald-light text-white px-4 py-2 rounded-md font-semibold no-underline transition-colors">${donate.text}</a>`;
+  return `        <a href="${donate.href}" class="site-nav-donate">${donate.text}</a>`;
 }
 
 // Main template generator
@@ -87,16 +87,16 @@ function generateTemplate(nav, tokens) {
 {% block extrabody %}
 {%- set stage = docs_version_stage|default("stable") -%}
 {%- set ver = docs_version|default("dev") -%}
-<nav class="site-nav-bar bg-slate-800 border-b border-slate-700 text-white fixed top-0 left-0 right-0 z-[300]">
-    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div class="flex items-center gap-6 md:gap-8">
-            <a href="${nav.brand.href}" class="hover:opacity-80 transition-opacity">
-                <img src="{{ pathto('_static/favicon.svg', 1) }}" alt="Cleanroom Labs home" class="w-8 h-8" />
+<nav class="site-nav-bar">
+    <div class="site-nav-inner">
+        <div class="site-nav-links">
+            <a href="${nav.brand.href}" class="site-nav-logo">
+                <img src="{{ pathto('_static/favicon.svg', 1) }}" alt="Cleanroom Labs home" />
             </a>
-            <a href="${nav.brand.href}" class="nav-brand hidden md:block font-bold text-lg text-white hover:text-emerald-light no-underline transition-colors">${nav.brand.text}</a>
+            <a href="${nav.brand.href}" class="nav-brand">${nav.brand.text}</a>
 ${navLinks}
         </div>
-${donateButton ? '        <div class="flex items-center gap-4">\\n            ' + donateButton.trim() + '\\n        </div>' : ''}
+${donateButton ? '        <div class="site-nav-actions">\\n            ' + donateButton.trim() + '\\n        </div>' : ''}
     </div>
 </nav>
 {%- if stage != "stable" -%}
