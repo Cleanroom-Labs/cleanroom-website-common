@@ -1,33 +1,43 @@
-# Cleanroom Theme
+# Cleanroom Website Common
 
-Unified theme for Cleanroom Labs - the single source of truth for design tokens used across the main website and Sphinx documentation.
+Shared infrastructure for Cleanroom Labs — design system, Sphinx configuration, product icons, and build tools used across the main website and all documentation projects.
 
 ## Overview
 
 This repository provides:
-- **Design Tokens**: Centralized color, font, and spacing definitions
+- **Design Tokens**: Centralized color, font, spacing, and navigation definitions
 - **Tailwind Preset**: Ready-to-use preset for the main Next.js website
+- **Sphinx Configuration**: Shared `theme_config.py` with extensions, theme settings, and intersphinx mappings
 - **Sphinx Theme**: Auto-generated CSS and templates for documentation
+- **Product Icons**: SVG icons with JS and Python exports for website components and PDF generation
+- **Build & Validation Scripts**: CSS/nav generation, staleness checking, and Sphinx warning validation
 
 ## Repository Structure
 
 ```
-cleanroom-theme/
+cleanroom-website-common/
 ├── tokens/
-│   └── colors.js           # Single source of truth for all design tokens
+│   ├── colors.js              # Single source of truth for all design tokens
+│   └── navigation.js          # Navigation links and branding
 ├── tailwind/
-│   └── preset.js           # Tailwind preset that imports tokens
+│   └── preset.js              # Tailwind preset that imports tokens
 ├── sphinx/
 │   ├── _static/
-│   │   └── custom.css      # Generated CSS for Sphinx docs
+│   │   └── custom.css         # Generated CSS for Sphinx docs
 │   └── _templates/
-│       └── layout.html     # Sphinx layout with navigation bar
+│       └── layout.html        # Sphinx layout with navigation bar
+├── icons/
+│   ├── *.svg                  # Product icon SVGs
+│   ├── index.js               # JS icon path exports (website)
+│   └── index.py               # Python icon exports (PDF generation)
 ├── scripts/
-│   ├── build-sphinx-css.js # Script to generate CSS from tokens
-│   └── build-sphinx-nav.js # Script to generate Sphinx layout template from tokens
-├── theme_config.py         # Sphinx configuration (extensions, theme settings)
-├── package.json            # npm scripts
-└── requirements.txt        # Python dependencies for Sphinx
+│   ├── build-sphinx-css.js    # Generate CSS from tokens
+│   ├── build-sphinx-nav.js    # Generate Sphinx layout template from tokens
+│   ├── check-staleness.js     # Validate generated files are up-to-date
+│   └── check-sphinx-warnings.sh  # Validate Sphinx build logs
+├── theme_config.py            # Sphinx configuration (extensions, theme settings)
+├── package.json               # npm scripts
+└── requirements.txt           # Python dependencies for Sphinx
 ```
 
 ## Usage
@@ -37,7 +47,7 @@ cleanroom-theme/
 Add as a submodule and use the preset in your `tailwind.config.js`:
 
 ```javascript
-const themePreset = require('./cleanroom-theme/tailwind/preset');
+const themePreset = require('./common/tailwind/preset');
 
 module.exports = {
   presets: [themePreset],
@@ -48,19 +58,19 @@ module.exports = {
 
 ### Sphinx Documentation
 
-Add as a submodule to your docs `source/` directory:
+Add as a submodule at the repo root:
 
 ```bash
-git submodule add <repo-url> source/cleanroom-theme
+git submodule add <repo-url> common
 ```
 
-In your `conf.py`:
+In your `source/conf.py`:
 
 ```python
 import sys
 import os
 
-sys.path.insert(0, os.path.abspath('cleanroom-theme'))
+sys.path.insert(0, os.path.abspath('../common'))
 from theme_config import *
 
 project = 'Your Project'
@@ -94,13 +104,13 @@ All colors are defined in `tokens/colors.js`:
 
 ## Updating
 
-To update the theme in a project:
+To update the common submodule in a project:
 
 ```bash
 cd your-project
-git submodule update --remote cleanroom-theme
-git add cleanroom-theme
-git commit -m "Update theme"
+git submodule update --remote common
+git add common
+git commit -m "Update common submodule"
 ```
 
 ## Sphinx Configuration

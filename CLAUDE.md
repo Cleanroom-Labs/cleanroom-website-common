@@ -4,10 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Purpose
 
-The cleanroom-theme is the shared design system for all Cleanroom Labs projects. It provides:
-- Design tokens (colors, typography, spacing) as a single source of truth
-- Sphinx theme configuration for documentation
-- Generated CSS and navigation files for consistency across all docs
+cleanroom-website-common is the shared design system, Sphinx configuration, and build toolkit for all Cleanroom Labs projects. It provides:
+- Design tokens (colors, typography, spacing, navigation) as a single source of truth
+- Tailwind preset for the main Next.js website
+- Sphinx theme configuration, CSS, and templates for documentation
+- Product icons (SVG, JS, and Python exports)
+- Build and validation scripts (CSS generation, staleness checking, Sphinx warning validation)
 
 ## Key Files
 
@@ -41,23 +43,23 @@ When you modify `tokens/colors.js` or other token files:
 
 ### Syncing to Other Repos
 
-This theme is a submodule in multiple locations. After making changes:
+This repo is a submodule in multiple locations. After making changes:
 
 1. Commit and push changes in this repo
-2. In the parent website repo, run `./scripts/sync-theme.py` to propagate
+2. In the parent website repo, run `./scripts/sync-common.py` to propagate
 3. The sync script updates all 5 submodule locations
 
 ### Important Notes
 
 - **Always run `npm run build` after token changes** - generated files must stay in sync
 - **CI checks for staleness** - PRs will warn if generated files are out of date
-- **Theme is shared** - changes affect all Cleanroom documentation sites
+- **This repo is shared** - changes affect the website and all documentation sites
 - **Test locally** - build docs with `node scripts/build-docs.mjs` in parent repo to verify
 
 ## Directory Structure
 
 ```
-cleanroom-theme/
+cleanroom-website-common/
 ├── tokens/              # Source of truth for design system
 │   └── colors.js        # Color palette, semantic colors
 ├── css/                 # Generated CSS files
