@@ -156,11 +156,12 @@ def make_needs_types(prefix=''):
 
 # -- Base sphinx-needs configuration -----------------------------------------
 
+needs_build_json = True
 needs_build_needflow = True
 needs_flow_show_links = True
 needs_flow_engine = 'graphviz'
 needs_id_regex = '^[A-Z0-9_-]{3,}'
-needs_extra_options = ['priority']
+needs_extra_options = ['priority', 'release']
 
 # Base extra links (can be extended by projects)
 needs_extra_links = [
