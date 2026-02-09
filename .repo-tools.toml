@@ -1,0 +1,2 @@
+[worktree-merge]
+test-command = "npm run check-staleness"
