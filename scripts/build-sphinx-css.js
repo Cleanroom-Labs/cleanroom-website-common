@@ -738,6 +738,7 @@ a.download:hover {
 body.has-version-sub-bar .wy-nav-side {
     top: 92px;
     height: calc(100% - 92px);
+    padding-bottom: 0;
 }
 
 body.has-version-sub-bar .wy-nav-content-wrap {
@@ -756,6 +757,7 @@ body.has-version-sub-bar .sidebar-toggle {
     body.has-version-sub-bar .wy-nav-side {
         top: 92px;
         height: calc(100% - 92px);
+        padding-bottom: 0;
     }
 
     body.has-version-sub-bar .wy-nav-content-wrap {
@@ -939,6 +941,7 @@ body.has-version-sub-bar .sidebar-toggle {
 .wy-nav-side {
     top: 64px;
     height: calc(100% - 64px);
+    padding-bottom: 0;
 }
 
 .wy-nav-content-wrap {
@@ -946,6 +949,9 @@ body.has-version-sub-bar .sidebar-toggle {
 }
 
 .wy-side-nav-search {
+    position: sticky;
+    top: 0;
+    z-index: 10;
     margin-top: 0;
     padding-top: 1rem !important;
 }
@@ -1028,6 +1034,7 @@ body.sidebar-collapsed .sidebar-toggle {
     .wy-nav-side {
         top: 64px;
         height: calc(100% - 64px);
+        padding-bottom: 0;
     }
 
     .wy-nav-content-wrap {
