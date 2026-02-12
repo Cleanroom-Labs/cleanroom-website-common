@@ -1,0 +1,46 @@
+/*
+ * Grove Visualizer Theme — Cleanroom Labs Design System
+ *
+ * Derived from common/tokens/colors.js.
+ * This file is the canonical source of truth for the Grove
+ * visualizer's color palette and typography tokens.
+ */
+
+:root {
+    /* Slate backgrounds */
+    --cl-slate-950: #030712;
+    --cl-slate-900: #111827;
+    --cl-slate-800: #1f2937;
+    --cl-slate-700: #374151;
+    --cl-slate-600: #4b5563;
+    --cl-slate-500: #64748b;
+    --cl-slate-200: #e2e8f0;
+    --cl-slate-100: #f1f5f9;
+    --cl-slate-50: #f8fafc;
+
+    /* Light-theme text (for content areas) */
+    --cl-text-dark: #1e293b;    /* slate-800 */
+    --cl-text-dim: #334155;     /* slate-700 */
+    --cl-text-muted: #64748b;   /* slate-500 */
+
+    /* Dark-theme text (for toolbars, status bars) */
+    --cl-text-light: #f9fafb;   /* gray-50 */
+    --cl-text-light-dim: #d1d5db; /* gray-300 */
+    --cl-text-light-muted: #9ca3af; /* gray-400 */
+
+    /* Emerald accent */
+    --cl-emerald: #10b981;
+    --cl-emerald-light: #34d399;
+    --cl-emerald-dark: #059669;
+    --cl-emerald-glow: #10b98133;
+
+    /* Semantic colors */
+    --cl-success: #10b981;
+    --cl-warning: #f59e0b;
+    --cl-danger: #ef4444;
+    --cl-info: #3b82f6;
+
+    /* Fonts */
+    --cl-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --cl-font-mono: Monaco, Menlo, 'Ubuntu Mono', Consolas, 'source-code-pro', monospace;
+}
