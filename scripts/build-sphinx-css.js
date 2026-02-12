@@ -52,6 +52,7 @@ html {
 }
 
 .wy-side-scroll {
+    overflow-y: auto;
     overscroll-behavior: none;
 }
 
@@ -738,6 +739,7 @@ a.download:hover {
 body.has-version-sub-bar .wy-nav-side {
     top: 92px;
     height: calc(100% - 92px);
+    min-height: 0;
     padding-bottom: 0;
 }
 
@@ -757,6 +759,7 @@ body.has-version-sub-bar .sidebar-toggle {
     body.has-version-sub-bar .wy-nav-side {
         top: 92px;
         height: calc(100% - 92px);
+        min-height: 0;
         padding-bottom: 0;
     }
 
@@ -930,6 +933,11 @@ body.has-version-sub-bar .sidebar-toggle {
     color: var(--color-syntax-comment);
 }
 
+/* Ensure bottom nav items are not clipped */
+.wy-menu-vertical {
+    padding-bottom: 2em;
+}
+
 /* Remove vertical separators between sidebar sections */
 .wy-menu-vertical .caption {
     border-bottom: none !important;
@@ -941,6 +949,7 @@ body.has-version-sub-bar .sidebar-toggle {
 .wy-nav-side {
     top: 64px;
     height: calc(100% - 64px);
+    min-height: 0;
     padding-bottom: 0;
 }
 
@@ -1034,6 +1043,7 @@ body.sidebar-collapsed .sidebar-toggle {
     .wy-nav-side {
         top: 64px;
         height: calc(100% - 64px);
+        min-height: 0;
         padding-bottom: 0;
     }
 
