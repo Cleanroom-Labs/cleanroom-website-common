@@ -1,0 +1,9 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background matching Cleanroom Labs favicon style -->
+  <rect width="64" height="64" rx="12" fill="#111827"/>
+  <!-- Tree icon (grove brand mark) in emerald green -->
+  <circle cx="32" cy="32" r="24" stroke="#6ee7b7" stroke-width="2" stroke-dasharray="4 3" opacity="0.35"/>
+  <path d="M32 50V30L20 18" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M32 30L44 18" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M32 40L45 33" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
+</svg>
