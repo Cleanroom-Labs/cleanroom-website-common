@@ -164,7 +164,7 @@ needs_id_regex = '^[A-Z0-9_-]{3,}'
 needs_extra_options = ['priority', 'release']
 
 # Base extra links (can be extended by projects)
-needs_links = [
+needs_extra_links = [
     {
         'option': 'tests',
         'incoming': 'is tested by',
