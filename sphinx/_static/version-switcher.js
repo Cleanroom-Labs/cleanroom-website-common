@@ -13,6 +13,9 @@
 
     var currentVersion = select.getAttribute('data-current-version') || 'dev';
 
+    // Only fetch versions.json when served under /docs/ (not standalone)
+    if (!window.location.pathname.startsWith('/docs/')) return;
+
     fetch(VERSIONS_JSON_PATH)
         .then(function(response) {
             if (!response.ok) throw new Error('versions.json not found');

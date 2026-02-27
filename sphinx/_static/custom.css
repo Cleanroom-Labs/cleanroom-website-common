@@ -570,6 +570,12 @@ table.docutils tr:hover {
     .highlight {
         font-size: 0.85em;
     }
+
+    /* Constrain needs boxes to viewport width */
+    .need, .usecase, .req, .nfreq, .test, .impl, .spec {
+        max-width: 100%;
+        overflow-x: auto;
+    }
 }
 
 /* ============================================================================
@@ -866,6 +872,7 @@ body.has-version-sub-bar .sidebar-toggle {
     line-height: 0 !important;
     transition: opacity 0.2s !important;
     border-bottom: none !important;
+    padding: 4px !important;
 }
 
 .site-nav-logo:hover {
@@ -921,6 +928,7 @@ body.has-version-sub-bar .sidebar-toggle {
     text-decoration: none !important;
     border-bottom: none !important;
     transition: color 0.2s !important;
+    padding: 8px 4px !important;
 }
 
 .site-nav-menu a:link,
