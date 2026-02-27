@@ -73,8 +73,11 @@ html {
     overscroll-behavior: none;
 }
 
-/* Content area - light theme for readability */
+/* Content area - light theme for readability.
+   Widen from RTD default (800px) so data-rich tables are not clipped.
+   Inner .document stays at 980px for prose readability. */
 .wy-nav-content {
+    max-width: 1200px;
     background: var(--color-docs-content-bg) !important;
 }
 
@@ -217,6 +220,26 @@ h3,
 
 .needstable tr:nth-child(even) {
     background-color: rgba(248, 250, 252, 0.5);
+}
+
+/* sphinx-needs DataTables layout fixes
+   -------------------------------------------------------------------------
+   sphinx-needs initialises DataTables with autoWidth:false, which locks
+   the <table> to a narrow pixel width.  Force it to fill its container. */
+table.NEEDS_DATATABLES {
+    width: 100% !important;
+}
+
+/* DataTables toolbar uses CSS floats.  Without clearing, the
+   .wy-table-responsive wrapper renders beside the toolbar instead
+   of below it, stealing hundreds of pixels from table width. */
+.dataTables_wrapper .wy-table-responsive {
+    clear: both;
+}
+
+/* Horizontal-scroll fallback for narrow viewports. */
+.dataTables_wrapper {
+    overflow-x: auto;
 }
 
 /* Use case highlighting */
