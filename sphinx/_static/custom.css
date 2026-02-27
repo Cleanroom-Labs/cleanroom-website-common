@@ -1041,23 +1041,23 @@ body.has-version-sub-bar .sidebar-toggle {
 }
 
 /* Collapsed state */
-body.sidebar-collapsed .wy-nav-side {
+html.sidebar-collapsed .wy-nav-side {
     transform: translateX(-100%);
 }
 
-body.sidebar-collapsed .wy-nav-content-wrap {
+html.sidebar-collapsed .wy-nav-content-wrap {
     margin-left: 0;
 }
 
-body.sidebar-collapsed .sidebar-toggle {
+html.sidebar-collapsed .sidebar-toggle {
     left: 10px;
 }
 
-body.sidebar-collapsed .document {
+html.sidebar-collapsed .document {
     max-width: none;
 }
 
-body.sidebar-collapsed .wy-nav-content {
+html.sidebar-collapsed .wy-nav-content {
     max-width: none;
 }
 

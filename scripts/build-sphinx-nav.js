@@ -82,6 +82,10 @@ function generateTemplate(nav, tokens) {
     ${tailwindConfig}
 </script>
 <script defer src="{{ pathto('_static/version-switcher.js', 1) }}"></script>
+<script>
+// Early sidebar state restore — runs in <head> before body renders to prevent FOUC.
+try { if (localStorage.getItem('sidebar-collapsed') === 'true') document.documentElement.classList.add('sidebar-collapsed'); } catch(e) {}
+</script>
 {% endblock %}
 
 {% block extrabody %}
@@ -90,11 +94,18 @@ function generateTemplate(nav, tokens) {
 <nav class="site-nav-bar">
     <div class="site-nav-inner">
         <div class="site-nav-links">
+            {%- if standalone_docs|default(false) -%}
+            <a href="{{ pathto('index') }}" class="site-nav-logo">
+                {{ nav_brand_logo|safe }}
+            </a>
+            <a href="{{ pathto('index') }}" class="nav-brand">{{ nav_brand_text }}</a>
+            {%- else -%}
             <a href="${nav.brand.href}" class="site-nav-logo">
                 <img src="{{ pathto('_static/favicon.svg', 1) }}" alt="Cleanroom Labs home" />
             </a>
             <a href="${nav.brand.href}" class="nav-brand">${nav.brand.text}</a>
 ${navLinks}
+            {%- endif -%}
         </div>
 ${donateButton ? '        <div class="site-nav-actions">\\n            ' + donateButton.trim() + '\\n        </div>' : ''}
     </div>
@@ -155,18 +166,14 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Sidebar toggle functionality
+// State restoration is handled by the <head> script to prevent FOUC.
 (function() {
     var toggle = document.getElementById('sidebar-toggle');
-    var body = document.body;
-
-    // Load saved state
-    if (localStorage.getItem('sidebar-collapsed') === 'true') {
-        body.classList.add('sidebar-collapsed');
-    }
+    var root = document.documentElement;
 
     toggle.addEventListener('click', function() {
-        body.classList.toggle('sidebar-collapsed');
-        localStorage.setItem('sidebar-collapsed', body.classList.contains('sidebar-collapsed'));
+        root.classList.toggle('sidebar-collapsed');
+        try { localStorage.setItem('sidebar-collapsed', root.classList.contains('sidebar-collapsed')); } catch(e) {}
     });
 
     // Keyboard shortcut: Alt+S

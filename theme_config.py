@@ -227,6 +227,32 @@ def setup_project_icon(project_name, html_context_dict):
     html_context_dict['project_home_icon_breadcrumb'] = breadcrumb_svg.replace('\n', ' ').strip()
 
 
+def setup_standalone_docs(project_name, html_context_dict):
+    """Configure standalone mode — project-branded header, no website nav links.
+
+    Call from conf.py when building docs outside the Cleanroom Labs website:
+        setup_standalone_docs('AirGap Transfer', html_context)
+
+    Sets html_context variables that the shared layout template uses to render
+    a project-specific header instead of the Cleanroom Labs website header.
+    """
+    import importlib
+    icons_mod = importlib.import_module('icons.index')
+
+    project_map = {
+        'Technical Documentation': 'meta',
+        'AirGap Transfer': 'airgap-transfer',
+        'AirGap Deploy': 'airgap-deploy',
+        'Cleanroom Whisper': 'cleanroom-whisper',
+    }
+    icon_id = project_map.get(project_name, 'meta')
+    nav_logo_svg = icons_mod.get_project_icon_svg(icon_id, color='#10b981', size=32)
+
+    html_context_dict['standalone_docs'] = True
+    html_context_dict['nav_brand_text'] = project_name
+    html_context_dict['nav_brand_logo'] = nav_logo_svg.replace('\n', ' ').strip()
+
+
 rst_prolog = """
 .. |status-active| raw:: html
 
