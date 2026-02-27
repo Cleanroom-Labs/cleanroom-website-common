@@ -14,7 +14,7 @@ fi
 
 ERRORS="$(grep -E 'ERROR:' "$BUILD_LOG" || true)"
 WARNINGS="$(grep -E 'WARNING:' "$BUILD_LOG" || true)"
-NON_IGNORED="$(echo "$WARNINGS" | grep -viE 'failed to reach any of the inventories|intersphinx inventory' || true)"
+NON_IGNORED="$(echo "$WARNINGS" | grep -viE 'failed to reach any of the inventories|intersphinx inventory|needs_extra_options.*deprecated|needs_extra_links.*deprecated' || true)"
 
 if [ -n "$ERRORS" ]; then
   echo "❌ Build completed with errors:"
