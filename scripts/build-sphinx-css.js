@@ -1040,6 +1040,14 @@ body.sidebar-collapsed .sidebar-toggle {
     left: 10px;
 }
 
+body.sidebar-collapsed .document {
+    max-width: none;
+}
+
+body.sidebar-collapsed .wy-nav-content {
+    max-width: none;
+}
+
 /* Smooth transitions */
 .wy-nav-side {
     transition: transform 0.3s ease;
