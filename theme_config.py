@@ -90,6 +90,10 @@ html_css_files = [
     'custom.css',
 ]
 
+html_js_files = [
+    'needflow-fix.js',
+]
+
 # Favicon (shared across all docs - path relative to conf.py)
 html_favicon = '../common/sphinx/_static/favicon.ico'
 
@@ -126,12 +130,12 @@ intersphinx_mapping = {
 # -- Sphinx-needs type colors (single source of truth) ----------------------
 
 NEEDS_COLORS = {
-    'usecase': '#BFD8D2',  # teal
-    'req': '#FEDCD2',      # peach
-    'nfreq': '#DF744A',    # rust
-    'spec': '#DCB239',     # gold
-    'test': '#84B39D',     # sage
-    'impl': '#00A8B5',     # cyan
+    'usecase': '#BFDBFE',  # blue-200 (tokens: blue #60a5fa)
+    'req':     '#FED7AA',  # orange-200 (tokens: orange #f97316)
+    'nfreq':   '#FDBA74',  # orange-300 (distinguishable from req)
+    'spec':    '#FEF08A',  # yellow-200 (tokens: yellow #eab308)
+    'test':    '#A7F3D0',  # emerald-200 (tokens: emerald #10b981)
+    'impl':    '#DDD6FE',  # violet-200 (tokens: purple #8b5cf6)
 }
 
 
@@ -170,28 +174,28 @@ needs_extra_links = [
         'incoming': 'is tested by',
         'outgoing': 'tests',
         'copy': False,
-        'color': '#84B39D'
+        'color': '#10b981'
     },
     {
         'option': 'implements',
         'incoming': 'is implemented by',
         'outgoing': 'implements',
         'copy': False,
-        'color': '#00A8B5'
+        'color': '#8b5cf6'
     },
     {
         'option': 'satisfies',
         'incoming': 'is satisfied by',
         'outgoing': 'satisfies',
         'copy': False,
-        'color': '#FEDCD2'
+        'color': '#f97316'
     },
     {
         'option': 'derives',
         'incoming': 'is derived from',
         'outgoing': 'derives from',
         'copy': False,
-        'color': '#BFD8D2'
+        'color': '#60a5fa'
     },
 ]
 
