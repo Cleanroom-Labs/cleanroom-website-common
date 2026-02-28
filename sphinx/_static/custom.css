@@ -83,6 +83,7 @@ html {
    Inner .document stays at 980px for prose readability. */
 .wy-nav-content {
     max-width: 1200px;
+    margin: 0 auto;
     background: var(--color-docs-content-bg) !important;
 }
 
