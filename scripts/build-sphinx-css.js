@@ -38,6 +38,8 @@ ${generateCSSVariables(colors)}
 
 .document {
     max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
     line-height: 1.7;
 }
 
@@ -49,6 +51,9 @@ body {
 /* Prevent overscroll/elastic scroll on mobile */
 html {
     overscroll-behavior: none;
+    /* Offset anchor scroll targets below the fixed navbar (64px) +
+       optional version sub-bar (28px) + 8px breathing room. */
+    scroll-padding-top: 100px;
 }
 
 .wy-side-scroll {
@@ -65,6 +70,7 @@ html {
    Inner .document stays at 980px for prose readability. */
 .wy-nav-content {
     max-width: 1200px;
+    margin: 0 auto;
     background: var(--color-docs-content-bg) !important;
 }
 
@@ -557,6 +563,12 @@ table.docutils tr:hover {
     .highlight {
         font-size: 0.85em;
     }
+
+    /* Constrain needs boxes to viewport width */
+    .need, .usecase, .req, .nfreq, .test, .impl, .spec {
+        max-width: 100%;
+        overflow-x: auto;
+    }
 }
 
 /* ============================================================================
@@ -853,6 +865,7 @@ body.has-version-sub-bar .sidebar-toggle {
     line-height: 0 !important;
     transition: opacity 0.2s !important;
     border-bottom: none !important;
+    padding: 4px !important;
 }
 
 .site-nav-logo:hover {
@@ -908,6 +921,7 @@ body.has-version-sub-bar .sidebar-toggle {
     text-decoration: none !important;
     border-bottom: none !important;
     transition: color 0.2s !important;
+    padding: 8px 4px !important;
 }
 
 .site-nav-menu a:link,
@@ -1041,7 +1055,9 @@ html.sidebar-collapsed .sidebar-toggle {
 }
 
 html.sidebar-collapsed .document {
-    max-width: none;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 html.sidebar-collapsed .wy-nav-content {

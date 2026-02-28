@@ -10,33 +10,7 @@
 const fs = require('fs');
 const path = require('path');
 const nav = require('../tokens/navigation');
-const tokens = require('../tokens/colors');
 
-// Generate Tailwind config with design system colors
-// Uses nested structure required by Tailwind for color variants (e.g., emerald.light for hover:text-emerald-light)
-function generateTailwindConfig(colors) {
-  const tailwindColors = {
-    text: {
-      secondary: colors['text-secondary']
-    },
-    emerald: {
-      DEFAULT: colors['emerald'],
-      light: colors['emerald-light']
-    },
-    slate: {
-      700: colors['slate-700'],
-      800: colors['slate-800']
-    }
-  };
-
-  return `tailwind.config = {
-      theme: {
-        extend: {
-          colors: ${JSON.stringify(tailwindColors, null, 12).replace(/\n/g, '\n        ')}
-        }
-      }
-    }`;
-}
 
 // Generate navigation links HTML (wrapped in a semantic container)
 function generateNavLinks(links) {
@@ -56,8 +30,7 @@ function generateDonateButton(donate) {
 }
 
 // Main template generator
-function generateTemplate(nav, tokens) {
-  const tailwindConfig = generateTailwindConfig(tokens.colors);
+function generateTemplate(nav) {
   const navLinks = generateNavLinks(nav.links);
   const donateButton = nav.donate ? generateDonateButton(nav.donate) : '';
 
@@ -77,10 +50,6 @@ function generateTemplate(nav, tokens) {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-    ${tailwindConfig}
-</script>
 <script defer src="{{ pathto('_static/version-switcher.js', 1) }}"></script>
 <script>
 // Early sidebar state restore — runs in <head> before body renders to prevent FOUC.
@@ -200,7 +169,7 @@ if (!fs.existsSync(outputDir)) {
 }
 
 // Generate and write template
-const template = generateTemplate(nav, tokens);
+const template = generateTemplate(nav);
 fs.writeFileSync(outputPath, template);
 
 console.log(`Generated: ${outputPath}`);
