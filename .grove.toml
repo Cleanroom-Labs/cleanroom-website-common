@@ -1,2 +1,2 @@
 [worktree-merge]
-test-command = "npm run check-staleness"
+test-command = "npm run check-staleness && make test-e2e"

@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  staleness:
+    name: Check generated file staleness
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm run check-staleness
+
+  theme-tests:
+    name: Theme E2E tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.x'
+      - name: Install system dependencies
+        run: sudo apt-get update && sudo apt-get install -y graphviz
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt -r tests/requirements.txt
+      - name: Install Playwright browsers
+        run: python3 -m playwright install --with-deps chromium
+      - name: Run theme E2E tests
+        run: make test-e2e
