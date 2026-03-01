@@ -833,6 +833,10 @@ body.has-version-sub-bar .sidebar-toggle {
     color: #ffffff !important;
 }
 
+body.has-version-sub-bar .site-nav-bar {
+    border-bottom: none !important;
+}
+
 .site-nav-inner {
     width: 100% !important;
     margin: 0 auto !important;
@@ -933,7 +937,7 @@ body.has-version-sub-bar .sidebar-toggle {
     text-decoration: none !important;
     border-bottom: none !important;
     transition: color 0.2s !important;
-    padding: 10px 4px !important;
+    padding: 10px 0 !important;
     line-height: 24px !important;
 }
 
