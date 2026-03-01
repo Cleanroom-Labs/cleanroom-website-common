@@ -934,6 +934,7 @@ body.has-version-sub-bar .sidebar-toggle {
     border-bottom: none !important;
     transition: color 0.2s !important;
     padding: 10px 4px !important;
+    line-height: 24px !important;
 }
 
 .site-nav-menu a:link,
