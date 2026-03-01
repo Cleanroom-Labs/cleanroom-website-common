@@ -834,7 +834,7 @@ body.has-version-sub-bar .sidebar-toggle {
 }
 
 body.has-version-sub-bar .site-nav-bar {
-    border-bottom: none !important;
+    border-bottom-color: var(--color-slate-900) !important;
 }
 
 .site-nav-inner {
