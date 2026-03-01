@@ -22,6 +22,11 @@ function generateCSSVariables(colors) {
 function generateCSS(tokens) {
   const colors = tokens.colors;
 
+  // Nav height constants — must match the Next.js header (Layout.js: py-4 + content + border)
+  const NAV_HEIGHT = 77;
+  const VERSION_BAR_HEIGHT = 28;
+  const COMBINED_HEIGHT = NAV_HEIGHT + VERSION_BAR_HEIGHT;
+
   return `/* ============================================================================
    Cleanroom Design System - Sphinx Theme
    Auto-generated from design tokens - DO NOT EDIT DIRECTLY
@@ -51,9 +56,9 @@ body {
 /* Prevent overscroll/elastic scroll on mobile */
 html {
     overscroll-behavior: none;
-    /* Offset anchor scroll targets below the fixed navbar (64px) +
-       optional version sub-bar (28px) + 8px breathing room. */
-    scroll-padding-top: 100px;
+    /* Offset anchor scroll targets below the fixed navbar (${NAV_HEIGHT}px) +
+       optional version sub-bar (${VERSION_BAR_HEIGHT}px) + 8px breathing room. */
+    scroll-padding-top: ${COMBINED_HEIGHT + 8}px;
 }
 
 .wy-side-scroll {
@@ -687,7 +692,7 @@ a.download:hover {
 
 .version-sub-bar {
     position: fixed;
-    top: 64px;
+    top: ${NAV_HEIGHT}px;
     left: 0;
     right: 0;
     z-index: 299;
@@ -772,34 +777,34 @@ a.download:hover {
 
 /* Layout shift when sub-bar is present */
 body.has-version-sub-bar .wy-nav-side {
-    top: 92px;
-    height: calc(100% - 92px);
+    top: ${COMBINED_HEIGHT}px;
+    height: calc(100% - ${COMBINED_HEIGHT}px);
     min-height: 0;
     padding-bottom: 0;
 }
 
 body.has-version-sub-bar .wy-nav-content-wrap {
-    margin-top: 92px;
+    margin-top: ${COMBINED_HEIGHT}px;
 }
 
 body.has-version-sub-bar .sidebar-toggle {
-    top: 106px;
+    top: ${COMBINED_HEIGHT + 14}px;
 }
 
 @media screen and (max-width: 768px) {
     body.has-version-sub-bar .wy-nav-top {
-        margin-top: 92px;
+        margin-top: ${COMBINED_HEIGHT}px;
     }
 
     body.has-version-sub-bar .wy-nav-side {
-        top: 92px;
-        height: calc(100% - 92px);
+        top: ${COMBINED_HEIGHT}px;
+        height: calc(100% - ${COMBINED_HEIGHT}px);
         min-height: 0;
         padding-bottom: 0;
     }
 
     body.has-version-sub-bar .wy-nav-content-wrap {
-        margin-top: 92px;
+        margin-top: ${COMBINED_HEIGHT}px;
     }
 }
 
@@ -814,7 +819,6 @@ body.has-version-sub-bar .sidebar-toggle {
     left: 0 !important;
     right: 0 !important;
     z-index: 300 !important;
-    height: 64px !important;
     box-sizing: border-box !important;
     background-color: #1f2937 !important;
     border-bottom: 1px solid #374151 !important;
@@ -824,8 +828,7 @@ body.has-version-sub-bar .sidebar-toggle {
 .site-nav-inner {
     width: 100% !important;
     margin: 0 auto !important;
-    padding: 0 16px !important;
-    height: 100% !important;
+    padding: 16px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
@@ -865,7 +868,8 @@ body.has-version-sub-bar .sidebar-toggle {
     line-height: 0 !important;
     transition: opacity 0.2s !important;
     border-bottom: none !important;
-    padding: 4px !important;
+    padding: 8px !important;
+    margin: -8px !important;
 }
 
 .site-nav-logo:hover {
@@ -921,7 +925,7 @@ body.has-version-sub-bar .sidebar-toggle {
     text-decoration: none !important;
     border-bottom: none !important;
     transition: color 0.2s !important;
-    padding: 8px 4px !important;
+    padding: 10px 4px !important;
 }
 
 .site-nav-menu a:link,
@@ -984,14 +988,14 @@ body.has-version-sub-bar .sidebar-toggle {
 
 /* Adjust RTD theme layout for fixed header */
 .wy-nav-side {
-    top: 64px;
-    height: calc(100% - 64px);
+    top: ${NAV_HEIGHT}px;
+    height: calc(100% - ${NAV_HEIGHT}px);
     min-height: 0;
     padding-bottom: 0;
 }
 
 .wy-nav-content-wrap {
-    margin-top: 64px;
+    margin-top: ${NAV_HEIGHT}px;
 }
 
 .wy-side-nav-search {
@@ -1020,7 +1024,7 @@ body.has-version-sub-bar .sidebar-toggle {
 /* Sidebar toggle button */
 .sidebar-toggle {
     position: fixed;
-    top: 78px;
+    top: ${NAV_HEIGHT + 14}px;
     left: 270px;
     z-index: 250;
     width: 24px;
@@ -1083,19 +1087,19 @@ html.sidebar-collapsed .wy-nav-content {
 /* Mobile nav adjustments */
 @media screen and (max-width: 768px) {
     .wy-nav-top {
-        margin-top: 64px;  /* Use margin-top since RTD's .wy-nav-top has position: relative */
+        margin-top: ${NAV_HEIGHT}px;  /* Use margin-top since RTD's .wy-nav-top has position: relative */
         background-color: var(--color-slate-800);
     }
 
     .wy-nav-side {
-        top: 64px;
-        height: calc(100% - 64px);
+        top: ${NAV_HEIGHT}px;
+        height: calc(100% - ${NAV_HEIGHT}px);
         min-height: 0;
         padding-bottom: 0;
     }
 
     .wy-nav-content-wrap {
-        margin-top: 64px;
+        margin-top: ${NAV_HEIGHT}px;
     }
 }
 

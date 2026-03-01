@@ -17,7 +17,7 @@ module.exports = {
   links: [
     { text: 'About', href: '/about' },
     { text: 'Blog', href: '/blog' },
-    { text: 'Docs', href: '/docs/index.html' },
+    { text: 'Docs', href: '/docs' },
   ],
 
   // Donate button temporarily hidden — uncomment to re-enable
