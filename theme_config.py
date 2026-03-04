@@ -133,7 +133,8 @@ NEEDS_COLORS = {
     'usecase': '#BFDBFE',  # blue-200 (tokens: blue #60a5fa)
     'req':     '#FED7AA',  # orange-200 (tokens: orange #f97316)
     'nfreq':   '#FDBA74',  # orange-300 (distinguishable from req)
-    'spec':    '#FEF08A',  # yellow-200 (tokens: yellow #eab308)
+    'ifreq':      '#93C5FD',  # blue-300 (boundary/interface)
+    'convention': '#FEF08A',  # yellow-200 (tokens: yellow #eab308)
     'test':    '#A7F3D0',  # emerald-200 (tokens: emerald #10b981)
     'impl':    '#DDD6FE',  # violet-200 (tokens: purple #8b5cf6)
 }
@@ -152,7 +153,8 @@ def make_needs_types(prefix=''):
         {'directive': 'usecase', 'title': 'Use Case', 'prefix': f'{prefix}UC-', 'color': NEEDS_COLORS['usecase'], 'style': 'node'},
         {'directive': 'req', 'title': 'Requirement', 'prefix': f'{prefix}FR-', 'color': NEEDS_COLORS['req'], 'style': 'node'},
         {'directive': 'nfreq', 'title': 'Non-Functional Requirement', 'prefix': f'{prefix}NFR-', 'color': NEEDS_COLORS['nfreq'], 'style': 'node'},
-        {'directive': 'spec', 'title': 'Design Specification', 'prefix': f'{prefix}DS-', 'color': NEEDS_COLORS['spec'], 'style': 'node'},
+        {'directive': 'ifreq', 'title': 'Interface Requirement', 'prefix': f'{prefix}IR-', 'color': NEEDS_COLORS['ifreq'], 'style': 'node'},
+        {'directive': 'convention', 'title': 'Design Convention', 'prefix': f'{prefix}DC-', 'color': NEEDS_COLORS['convention'], 'style': 'node'},
         {'directive': 'test', 'title': 'Test Case', 'prefix': f'{prefix}TC-', 'color': NEEDS_COLORS['test'], 'style': 'node'},
         {'directive': 'impl', 'title': 'Implementation', 'prefix': f'{prefix}IMPL-', 'color': NEEDS_COLORS['impl'], 'style': 'node'},
     ]
@@ -165,7 +167,7 @@ needs_build_needflow = True
 needs_flow_show_links = False
 needs_flow_engine = 'graphviz'
 needs_id_regex = '^[A-Z0-9_-]{3,}'
-needs_extra_options = ['priority', 'release']
+needs_extra_options = ['priority', 'release', 'deprecated']
 
 # Base extra links (can be extended by projects)
 needs_extra_links = [
@@ -197,9 +199,38 @@ needs_extra_links = [
         'copy': False,
         'color': '#60a5fa'
     },
+    {
+        'option': 'supersedes',
+        'incoming': 'is superseded by',
+        'outgoing': 'supersedes',
+        'copy': False,
+        'color': '#94a3b8'
+    },
+    {
+        'option': 'specifies',
+        'incoming': 'is specified by',
+        'outgoing': 'specifies',
+        'copy': False,
+        'color': '#3b82f6'
+    },
+    {
+        'option': 'verified_by',
+        'incoming': 'verifies',
+        'outgoing': 'is verified by',
+        'copy': False,
+        'color': '#10b981'
+    },
+    {
+        'option': 'realized_by',
+        'incoming': 'realizes',
+        'outgoing': 'is realized by',
+        'copy': False,
+        'color': '#8b5cf6'
+    },
 ]
 
-needs_flow_link_types = ['links', 'tests', 'implements', 'satisfies']
+needs_flow_link_types = ['links', 'tests', 'implements', 'satisfies', 'supersedes',
+                         'specifies', 'verified_by', 'realized_by']
 
 # -- RST Substitutions for Status Badges -------------------------------------
 
