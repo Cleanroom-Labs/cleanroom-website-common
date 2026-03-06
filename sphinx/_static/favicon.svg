@@ -1,7 +1,5 @@
 <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <!-- Dark background for visibility in browser tabs -->
   <rect width="64" height="64" rx="12" fill="#111827"/>
-  <!-- Shield silhouette — security/privacy brand mark -->
-  <path d="M32 10 L50 20 L50 34 C50 46 42 54 32 58 C22 54 14 46 14 34 L14 20 Z"
+  <path d="M32 8 L50 18 L50 32 C50 44 42 52 32 56 C22 52 14 44 14 32 L14 18 Z"
         fill="#10b981"/>
 </svg>
