@@ -8,7 +8,7 @@ used by both the PDF generator and website.
 from pathlib import Path
 from typing import Optional
 
-ICONS_DIR = Path(__file__).parent
+ICONS_DIR = Path(__file__).parent.parent / "assets" / "svg"
 
 # Map project identifiers to icon filenames
 PROJECT_TO_ICON = {
