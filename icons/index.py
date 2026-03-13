@@ -15,6 +15,7 @@ PROJECT_TO_ICON = {
     'airgap-transfer': 'transfer',
     'airgap-deploy': 'deploy',
     'cleanroom-whisper': 'whisper',
+    'grove': 'grove',
     'meta': 'shield',
 }
 

@@ -251,6 +251,7 @@ def setup_project_icon(project_name, html_context_dict):
         'AirGap Transfer': 'airgap-transfer',
         'AirGap Deploy': 'airgap-deploy',
         'Cleanroom Whisper': 'cleanroom-whisper',
+        'Grove': 'grove',
     }
     icon_id = project_map.get(project_name, 'meta')
 
@@ -279,6 +280,7 @@ def setup_standalone_docs(project_name, html_context_dict):
         'AirGap Transfer': 'airgap-transfer',
         'AirGap Deploy': 'airgap-deploy',
         'Cleanroom Whisper': 'cleanroom-whisper',
+        'Grove': 'grove',
     }
     icon_id = project_map.get(project_name, 'meta')
     nav_logo_svg = icons_mod.get_project_icon_svg(icon_id, color='#10b981', size=32)
