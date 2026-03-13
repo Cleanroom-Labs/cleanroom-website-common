@@ -514,7 +514,7 @@ table.docutils tr:hover {
 }
 
 .wy-side-nav-search .icon-home {
-    word-spacing: 0.15em;
+    word-spacing: 0.4em;
 }
 
 /* Breadcrumbs */
@@ -874,6 +874,7 @@ body.has-version-sub-bar .site-nav-bar {
     border-bottom: none !important;
     padding: 8px !important;
     margin: -8px !important;
+    margin-right: 0.25rem !important;
 }
 
 .site-nav-logo:hover {
