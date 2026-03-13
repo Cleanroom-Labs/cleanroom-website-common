@@ -26,8 +26,12 @@ cleanroom-website-common/
 │   │   └── custom.css         # Generated CSS for Sphinx docs
 │   └── _templates/
 │       └── layout.html        # Sphinx layout with navigation bar
+├── assets/
+│   ├── favicons/              # Favicon files (symlinked from sphinx/_static/)
+│   ├── social_preview/        # Social preview cards for all projects
+│   ├── standardized/          # Raster icons at 160/320/640px
+│   └── svg/                   # Product icon SVGs
 ├── icons/
-│   ├── *.svg                  # Product icon SVGs
 │   ├── index.js               # JS icon path exports (website)
 │   └── index.py               # Python icon exports (PDF generation)
 ├── scripts/

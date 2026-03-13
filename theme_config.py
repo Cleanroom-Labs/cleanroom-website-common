@@ -1,5 +1,5 @@
 """
-Shared Sphinx theme configuration for all AirGap project documentation.
+Shared Sphinx theme configuration for all Cleanroom Labs project documentation.
 
 This module provides common theme settings that are imported by individual
 project conf.py files to ensure consistent branding and styling.
