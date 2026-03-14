@@ -136,6 +136,7 @@ NEEDS_COLORS = {
     'ifreq':      '#93C5FD',  # blue-300 (boundary/interface)
     'convention': '#FEF08A',  # yellow-200 (tokens: yellow #eab308)
     'test':    '#A7F3D0',  # emerald-200 (tokens: emerald #10b981)
+    'spec':    '#C4B5FD',  # violet-300 (design specification)
     'impl':    '#DDD6FE',  # violet-200 (tokens: purple #8b5cf6)
 }
 
@@ -154,6 +155,7 @@ def make_needs_types(prefix=''):
         {'directive': 'req', 'title': 'Requirement', 'prefix': f'{prefix}FR-', 'color': NEEDS_COLORS['req'], 'style': 'node'},
         {'directive': 'nfreq', 'title': 'Non-Functional Requirement', 'prefix': f'{prefix}NFR-', 'color': NEEDS_COLORS['nfreq'], 'style': 'node'},
         {'directive': 'ifreq', 'title': 'Interface Requirement', 'prefix': f'{prefix}IR-', 'color': NEEDS_COLORS['ifreq'], 'style': 'node'},
+        {'directive': 'spec', 'title': 'Design Specification', 'prefix': f'{prefix}DS-', 'color': NEEDS_COLORS['spec'], 'style': 'node'},
         {'directive': 'convention', 'title': 'Design Convention', 'prefix': f'{prefix}DC-', 'color': NEEDS_COLORS['convention'], 'style': 'node'},
         {'directive': 'test', 'title': 'Test Case', 'prefix': f'{prefix}TC-', 'color': NEEDS_COLORS['test'], 'style': 'node'},
         {'directive': 'impl', 'title': 'Implementation', 'prefix': f'{prefix}IMPL-', 'color': NEEDS_COLORS['impl'], 'style': 'node'},
