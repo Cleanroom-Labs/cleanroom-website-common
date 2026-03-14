@@ -26,7 +26,7 @@ author = 'Cleanroom Labs'
 
 html_static_path = [os.path.join(COMMON_ROOT, 'sphinx', '_static')]
 templates_path = [os.path.join(COMMON_ROOT, 'sphinx', '_templates')]
-html_favicon = os.path.join(COMMON_ROOT, 'sphinx', '_static', 'favicon.ico')
+html_favicon = setup_project_favicon('Technical Documentation', COMMON_ROOT)  # noqa: F405
 
 # -- Sphinx-needs types with TEST- prefix ------------------------------------
 

@@ -94,7 +94,7 @@ html_js_files = [
     'needflow-fix.js',
 ]
 
-# Favicon (shared across all docs - path relative to conf.py)
+# Favicon (default: cleanroom-labs — override with setup_project_favicon())
 html_favicon = '../common/sphinx/_static/favicon.ico'
 
 # -- MyST-Parser configuration -----------------------------------------------
@@ -263,6 +263,30 @@ def setup_project_icon(project_name, html_context_dict):
     # Flatten to single line for safe Jinja/JS embedding
     html_context_dict['project_home_icon_sidebar'] = sidebar_svg.replace('\n', ' ').strip()
     html_context_dict['project_home_icon_breadcrumb'] = breadcrumb_svg.replace('\n', ' ').strip()
+
+
+def setup_project_favicon(project_name, common_root):
+    """Return the favicon .ico path for a given project.
+
+    Call from each project's conf.py:
+        html_favicon = setup_project_favicon('AirGap Transfer', COMMON_ROOT)
+
+    Args:
+        project_name: Display name of the project
+        common_root: Absolute path to the cleanroom-website-common directory
+
+    Returns:
+        Absolute path to the project's favicon.ico file
+    """
+    _favicon_map = {
+        'Technical Documentation': 'cleanroom-labs',
+        'AirGap Transfer': 'transfer',
+        'AirGap Deploy': 'deploy',
+        'Cleanroom Whisper': 'whisper',
+        'Grove': 'grove',
+    }
+    favicon_id = _favicon_map.get(project_name, 'cleanroom-labs')
+    return os.path.join(common_root, 'assets', 'favicons', favicon_id, 'favicon.ico')
 
 
 def setup_standalone_docs(project_name, html_context_dict):
