@@ -1,7 +1,32 @@
-"""Layout tests: content centering and anchor scroll offset."""
+"""Layout tests: content centering, anchor scroll offset, and nav bar flush."""
 
 import pytest
 from playwright.sync_api import Page
+
+
+# ---------------------------------------------------------------------------
+# Nav Bar / Version Sub-bar Flush
+# ---------------------------------------------------------------------------
+class TestNavBarSubBarFlush:
+    """The version sub-bar sits flush against the bottom of the nav bar."""
+
+    def test_no_gap_between_nav_and_sub_bar(
+        self, page: Page, base_url: str
+    ) -> None:
+        """Nav bar bottom edge is flush with version sub-bar top edge."""
+        page.goto(base_url)
+        page.wait_for_load_state("domcontentloaded")
+
+        gap = page.evaluate("""() => {
+            const nav = document.querySelector('.site-nav-bar');
+            const sub = document.querySelector('.version-sub-bar');
+            if (!nav || !sub) return null;
+            return sub.getBoundingClientRect().top - nav.getBoundingClientRect().bottom;
+        }""")
+        assert gap is not None, ".site-nav-bar or .version-sub-bar not found"
+        assert abs(gap) <= 1, (
+            f"Gap between nav bar and sub-bar is {gap:.1f}px, expected 0"
+        )
 
 
 # ---------------------------------------------------------------------------

@@ -820,6 +820,7 @@ body.has-version-sub-bar .sidebar-toggle {
     right: 0 !important;
     z-index: 300 !important;
     box-sizing: border-box !important;
+    height: ${NAV_HEIGHT}px !important;
     background-color: #1f2937 !important;
     border-bottom: 1px solid #374151 !important;
     color: #ffffff !important;
