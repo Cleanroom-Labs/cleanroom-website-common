@@ -49,6 +49,35 @@ This repo is a submodule in multiple locations. After making changes:
 2. In the parent website repo, run `./scripts/sync-common.py` to propagate
 3. The sync script updates all 5 submodule locations
 
+### Visual Inspection with Playwright
+
+When making CSS or layout changes, use Playwright to visually verify results:
+
+1. Build the fixture site: `make build-fixture`
+2. Start a local server: `python3 -m http.server 8766 --directory tests/fixture-site/_build/html`
+3. Use Playwright MCP tools (`browser_navigate`, `browser_take_screenshot`, `browser_snapshot`) to inspect the page
+4. Iterate on changes, rebuild, and re-screenshot until the result looks right
+5. Compare against https://cleanroomlabs.dev/ when matching main website styling
+
+This workflow is strongly encouraged for any visual change — screenshots catch issues that code review alone cannot.
+
+### E2E Tests
+
+Tests live in `tests/` and run via `make test-e2e` (Playwright + Chromium). The `conftest.py` session fixtures auto-build the fixture site, start an HTTP server, and provide a `base_url`.
+
+| Command | Purpose |
+|---------|---------|
+| `make test-e2e` | Run full E2E test suite |
+| `make build-fixture` | Build fixture site only |
+| `make clean-fixture` | Remove built fixture artifacts |
+
+Test patterns:
+- Use `page.evaluate()` with `getBoundingClientRect()` for layout measurements
+- Use `page.evaluate()` with `getComputedStyle()` for CSS property verification
+- Use `expect()` from `playwright.sync_api` for visibility and content assertions
+
+When fixing visual bugs, always add an E2E test to prevent regressions.
+
 ### Important Notes
 
 - **Always run `npm run build` after token changes** - generated files must stay in sync
