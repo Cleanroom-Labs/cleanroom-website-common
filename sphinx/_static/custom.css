@@ -521,10 +521,6 @@ table.docutils tr:hover {
     margin-left: -0.5em;
 }
 
-.wy-side-nav-search .icon-home {
-    word-spacing: 0.4em;
-}
-
 /* Breadcrumbs */
 .wy-breadcrumbs {
     margin-bottom: 1.5em;
@@ -834,12 +830,9 @@ body.has-version-sub-bar .sidebar-toggle {
     color: #ffffff !important;
 }
 
-body.has-version-sub-bar .site-nav-bar {
-    border-bottom-color: var(--color-slate-900) !important;
-}
-
 .site-nav-inner {
     width: 100% !important;
+    height: 100% !important;
     margin: 0 auto !important;
     padding: 16px !important;
     display: flex !important;

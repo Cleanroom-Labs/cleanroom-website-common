@@ -65,6 +65,20 @@ def test_mobile_nav_toggle(page: Page, base_url: str) -> None:
     expect(hamburger).to_be_visible()
 
 
+def test_sidebar_header_normal_word_spacing(page: Page, base_url: str) -> None:
+    """Sidebar header uses default word spacing (no extra gaps between words)."""
+    page.goto(base_url)
+    spacing = page.evaluate("""() => {
+        const el = document.querySelector('.wy-side-nav-search .icon-home');
+        if (!el) return null;
+        return getComputedStyle(el).wordSpacing;
+    }""")
+    assert spacing is not None, ".wy-side-nav-search .icon-home not found"
+    assert spacing in ("0px", "normal"), (
+        f"Sidebar header word-spacing is {spacing}, expected normal/0px"
+    )
+
+
 def test_sidebar_persistence(page: Page, base_url: str) -> None:
     """Collapsing the sidebar persists across page navigations."""
     page.goto(base_url)
