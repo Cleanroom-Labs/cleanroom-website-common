@@ -79,6 +79,22 @@ def test_sidebar_header_normal_word_spacing(page: Page, base_url: str) -> None:
     )
 
 
+def test_sidebar_icon_has_spacing_from_text(page: Page, base_url: str) -> None:
+    """Sidebar project icon has visible margin separating it from text."""
+    page.goto(base_url)
+    margin = page.evaluate("""() => {
+        const el = document.querySelector(
+            '.wy-side-nav-search .icon-home .project-home-icon'
+        );
+        if (!el) return null;
+        return parseFloat(getComputedStyle(el).marginRight);
+    }""")
+    assert margin is not None, ".project-home-icon not found in sidebar"
+    assert margin > 0, (
+        f"Sidebar icon margin-right is {margin}px, expected > 0"
+    )
+
+
 def test_sidebar_persistence(page: Page, base_url: str) -> None:
     """Collapsing the sidebar persists across page navigations."""
     page.goto(base_url)

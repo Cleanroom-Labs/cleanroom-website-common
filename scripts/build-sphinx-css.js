@@ -509,7 +509,7 @@ table.docutils tr:hover {
 }
 
 .wy-side-nav-search .icon-home .project-home-icon {
-    margin-right: 0;
+    margin-right: 0.35em;
     margin-left: -0.5em;
 }
 
