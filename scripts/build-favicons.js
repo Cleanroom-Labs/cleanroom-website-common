@@ -95,6 +95,18 @@ function generateIco(projectDir, svgPath) {
   fs.rmSync(tmpDir, { recursive: true });
 }
 
+// Preflight: verify required tools are available
+const REQUIRED_TOOLS = ['rsvg-convert', 'magick'];
+const missing = REQUIRED_TOOLS.filter(tool => {
+  try { execFileSync('which', [tool], { stdio: 'pipe' }); return false; }
+  catch { return true; }
+});
+if (missing.length) {
+  console.error(`Error: missing required tool(s): ${missing.join(', ')}`);
+  console.error('Install with: brew install librsvg imagemagick');
+  process.exit(1);
+}
+
 // Main
 console.log('Generating per-project favicons...\n');
 

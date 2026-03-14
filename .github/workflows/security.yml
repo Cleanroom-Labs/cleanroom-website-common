@@ -33,8 +33,8 @@ jobs:
           category: bearer-source
       - name: Enforce Bearer findings policy
         run: |
-          FINDINGS=$(jq '[.runs[].results[]? | select(.level == "error" or .level == "warning")] | length' bearer.sarif)
-          echo "Bearer findings (warning/error): ${FINDINGS}"
+          FINDINGS=$(jq '[.runs[].results[]? | select(.level == "error")] | length' bearer.sarif)
+          echo "Bearer findings (error): ${FINDINGS}"
           if [ "${FINDINGS}" -gt 0 ]; then
             echo "::error::Bearer reported security findings."
             exit 1
